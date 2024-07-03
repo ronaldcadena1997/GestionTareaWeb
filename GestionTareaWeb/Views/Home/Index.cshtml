@@ -133,7 +133,7 @@ height:110%;
 
 <div class="row" style=" ">
    
-        <div class="row" style="margin-top:90px; padding:15px;">
+        <div class="row" style="margin-top:90px; padding:15px;" hidden>
             <label>idtask</label>
             <input id="idTaskE"  asp-for="@Model.idTask"  type="text"  placeholder="ingrese una tarea"/>
         </div>
@@ -143,7 +143,7 @@ height:110%;
         </div>
 
          <div id="PlacaElement10" class="row" style="margin-top:50px;">
-            <label>Usuarios</label>
+           
          
     <label  for="inputGroupSelect02">Usuarios</label>
 
@@ -224,7 +224,7 @@ height:110%;
          <div class="row" style="margin-top:50px;">
 
                  <div id="PlacaElement102" class="row" style="margin-top:50px;">
-            <label>Usuarios</label>
+     
     <label  for="inputGroupSelect02">Usuarios</label>
 
 <select id="taskid" asp-for="@Model.usuarioId" class="form-control alistamientoscabezal2" style="font-size:16px;color:blue;" >
@@ -239,24 +239,7 @@ height:110%;
 </select>
   
          </div>
-         @*    <label>Usuarios</label>
-              <div class="form-group">
-             @if (Model.ListaUsuarios != null)
-                                    {
-                                        @Html.DropDownListFor(m => m.usuarioId,
-                                    new SelectList(Model.ListaUsuarios, "id", "nombre", Model.id),
-                                    new { @class = "form-control", placeholder = "Filtar" , id="taskid",style="text-align:center;  color:blue;",required= "required"}
-                                    )
-
-                                    }
-                                    else
-                                    {
-                                        <select class="custom-select" asp-for="@Model.usuarioId"  id="taskid" style=" margin-left:2%;text-align:center;  color:blue; width:100%">
-                                        </select>
-
-
-                                    }
-        </div> *@
+    
          </div>
 
         <div class="row" style="margin-top:90px; display:flex; align-items:center; justify-content:center; ">
@@ -440,7 +423,7 @@ function ObtenerVehiculosInfo(){
 function editar(info){
     $('#idTaskE').val(info.idTask);
       $("#idTareaNomE").val(info.tarea);
-   //     $("#taskid2").val(info.idEstudiante);
+       $("#CabezalId2").val(info.idEstudiante);
 
 
 }
