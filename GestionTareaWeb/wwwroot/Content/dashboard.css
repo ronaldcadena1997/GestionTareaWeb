@@ -1,0 +1,104 @@
+﻿body {
+   
+}
+
+#weekInfo {
+    
+    text-align: center;
+}
+div .estiloDefecto{
+    
+    font-weight:bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+div .personalizarInfo {
+    font-size: 39px;
+   font-weight:bold;
+}
+
+div .estiloDivPrincipal {
+    background-color: #FBFBFF;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+div .estiloInfo{
+    font-size:45px;
+}
+
+div .iconoEstilo {
+    font-size: 35px;
+    display: inline-block;
+    text-shadow: 1px 1px 1px black;
+    animation: moveY 2s infinite alternate;
+}
+@keyframes moveY {
+    0% {
+        transform: translateX(0);
+        
+        color:greenyellow;
+    }
+
+    100% {
+        transform: translateX(-5px);
+        
+        color: gray;
+    }
+}
+
+p{
+    font-size:20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div .estiloCuadro {
+    background: linear-gradient(45deg, #F2FEFD, #FFFFFF, #FFFFFF, #F2FEFD);
+    animation: gradientAnimation 10s ease infinite;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px; /* Espaciado externo */
+}
+
+.inline-container > * {
+    display: inline-block;
+    vertical-align: top; /* Opcional: Alínea los elementos al tope */
+}
+
+.select2-container {
+    z-index: 1000; /* Asegura que el dropdown esté por encima de otros elementos */
+}
+
+
+
+@media screen and (max-width:999px) {
+ div select  #semanaId{
+        width:70%;
+    }
+ div select #aniosId {
+        width: 70%;
+    }
+
+ 
+
+}
+
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

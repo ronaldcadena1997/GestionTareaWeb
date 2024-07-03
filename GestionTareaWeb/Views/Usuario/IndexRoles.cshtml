@@ -1,0 +1,266 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.css" />
+<link rel="stylesheet" href="~/Theme/js/bootstrap-filestyle/bootstrap-filestyle.js" />
+
+<link rel="stylesheet" href="~/Content/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Site.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
+
+@model GestionTareaWeb.Models.UsuarioViewModel
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<!-- Modal Guardar-->
+<div class="modal fade" id="guardarRol" tabindex="-1" aria-labelledby="guardarRolLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content " style="width:100%">
+            <div class="modal-header TMSHeaderModal">
+                <h5 class="modal-title TMSTituloModal">Roles</h5>
+                <div class="d-flex align-items-end flex-column">
+                    <button type="button" class="justify-content-end rounded-circle" data-bs-dismiss="modal" aria-label="Cerrar">X</button>
+                </div>
+            </div>
+            <form asp-action="GuardaryEditarInfoRoles">
+
+                <div class="modal-body ">
+                    <div class="form-outline mb-4"  hidden>
+                    <label class="form-label btn-Anio-info TMSlabelText" for="ruc">Id</label>
+                    <input type="text" asp-for="@Model.idRol" class="form-control form-control-lg  TMSTextBoxValores"
+                     />
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label btn-Anio-info TMSlabelText" for="ruc">Nombre de Rol</label>
+                        <input type="text" asp-for="@Model.descripcionRoles" class="form-control form-control-lg  TMSTextBoxValores"  placeholder="Ingrese un Rol" autocomplete="off" />
+
+                    </div>
+                    @*  <div class="form-outline mb-4">
+                    <label class="form-label btn-Anio-info TMSlabelText" for="ruc">Tipo Anio</label>
+                    <input type="text" id="TipoAnio1" class="form-control form-control-lg  TMSTextBoxValores"
+                    placeholder="Ingrese el tipo de la Anio" />
+                    </div>*@
+                </div>
+                <div class="modal-footer">
+                    <button id="guardarInformacion" type="submit" class="bi bi-save btn btn-primary  btn-sm"> Guardar </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar -->
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content " style="width:100%">
+            <div class="modal-header TMSHeaderModal">
+                <h5 class="modal-title TMSTituloModal">Roles</h5>
+                <div class="d-flex align-items-end flex-column">
+                    <button type="button" class="justify-content-end rounded-circle" data-bs-dismiss="modal" aria-label="Cerrar">X</button>
+                </div>
+            </div>
+            <form asp-action="GuardaryEditarInfoRoles">
+
+                <div class="modal-body ">
+                    <div class="form-outline mb-4"  hidden>
+                        <label class="form-label btn-Anio-info TMSlabelText" for="ruc">Id</label>
+                        <input id="IdRolesEditar" type="text" asp-for="@Model.idRol" class="form-control form-control-lg  TMSTextBoxValores" />
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label btn-Anio-info TMSlabelText" for="ruc">Nombre de Rol</label>
+                        <input id="descripcionRolEditar" type="text" asp-for="@Model.descripcionRoles" class="form-control form-control-lg  TMSTextBoxValores" placeholder="Ingrese un Rol" autocomplete="off" />
+
+                    </div>
+                    @*  <div class="form-outline mb-4">
+                    <label class="form-label btn-Anio-info TMSlabelText" for="ruc">Tipo Anio</label>
+                    <input type="text" id="TipoAnio1" class="form-control form-control-lg  TMSTextBoxValores"
+                    placeholder="Ingrese el tipo de la Anio" />
+                    </div>*@
+                </div>
+                <div class="modal-footer">
+                    <button id="guardarInformacion" type="submit" class="bi bi-save btn btn-primary  btn-sm"> Editar </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Eliminar -->
+<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content " style="width:100%">
+            <div class="modal-header TMSHeaderModal">
+                <h5 class="modal-title TMSTituloModal">TMS Mantenimiento</h5>
+                <div class="d-flex align-items-end flex-column">
+                    <button type="button" class="justify-content-end  cross" data-bs-dismiss="modal" aria-label="Cerrar">X</button>
+                </div>
+            </div>
+            <form asp-action="EliminarRoles">
+
+
+                <div class="modal-body ">
+                    <div  class="form-outline mb-4" hidden>
+                        <label class="form-label btn-Anio-info TMSlabelText">Id</label>
+                        <input  type="text" asp-for="@Model.idRol" id="idRolEliminar" class="form-control form-control-lg  TMSTextBoxValores" />
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label btn-Anio-info TMSlabelText" style="margin-top:28px; font-size:13px">¿Está seguro de querer eliminar este rol?</label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button id="eliminarInfoData" style="padding:10px; width:50px;" type="submit" class=" btn btn-success  btn-sm">Sí </button>
+                    <button id="eliminarInfoDatos" style="padding:10px; width:50px;" data-bs-dismiss="modal" aria-label="Cerrar" type="button" class=" btn btn-danger  btn-sm">No </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row" style="font-size: 13px !important;">
+    <div class="col-md-12">
+        <div class="widget">
+            <header class="widget-header" style="padding-bottom: 5px !important;">
+                <div class="row">
+                    <h4 class="widget-title col-md-12" style="font-weight:400 !important;font-size: 21px; color:#333333; font-family: Calibri, Helvetica Neue, Helvetica, Arial, sans-serif;">Rol</h4>
+                </div>
+            </header>
+            <hr class="widget-separator" style="margin-top:2px !important">
+            <div class="widget-body">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example" style="margin-bottom:5px !important;">
+                    <button id="btnNuevo" type="button" class="btn btn-success btn-sm bi bi-clipboard-plus" data-bs-toggle="modal" data-bs-target="#guardarRol">   Nuevo </button>
+
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-sm  dataTable" id="tablaLlantas">
+
+                        <thead>
+                            <tr>
+                              
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @if (Model.ListaItemRoles != null)
+                            {
+
+                                @foreach (var item in Model.ListaItemRoles)
+                                {
+                                    @Html.HiddenFor(model => item.id)
+                                    <tr>
+                                      
+                               
+                                        <td>
+                                            @Html.DisplayFor(model => item.descripcion)
+                                        </td>
+
+                                        <td>
+                                            <button title="Editar Rol" class="btn p-v-sm btn-success btn-sm" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editarModal" onclick="editar({idRol:'@item.id' ,descripcion:'@item.descripcion'});">
+                                                <i class="bi bi-pen"></i>
+                                            </button>
+
+                                            <button title="Eliminar Rol" class="btn p-v-sm btn-danger btn-sm" id="btnEliminar" data-bs-toggle="modal" data-bs-target="#eliminarModal" onclick="eliminar({idRol:'@item.id'});">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+                                }
+
+                            }
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                               
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Content/jquery-2.2.4.js"></script>
+    <script src="~/Content/bootstrap.js"></script>
+    <script src="~/Content/modernizr-2.8.3.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+    <script type="text/javascript">
+        var table;
+        // var inputElement = document.getElementById("Descripcion1");
+        //var inputElement2 = document.getElementById("TipoAnio1");
+
+        $(document).ready(function () {
+            $('#tablaLlantas').DataTable();
+        });
+
+
+        function editar(Roles) {
+            // console.log(Roles.idRol);
+            // console.log(Roles.descripcion);
+
+            $('#IdRolesEditar').val(Roles.idRol);
+            $('#descripcionRolEditar').val(Roles.descripcion);
+            
+
+        }
+        function eliminar(RolesF) {
+
+            $('#idRolEliminar').val(RolesF.idRol);
+
+        }
+
+        $("#btnNuevo").click(function () {
+          
+            //inputElement2.style.border = "1px solid #ced4da";
+            //    inputElement.style.border = "0px solid black";
+
+
+        });
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+}

@@ -1,0 +1,734 @@
+﻿@model HomeIndexViewModel
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/dashboard.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@{
+    ViewData["Title"] = "Página principal";
+}
+@{
+string loaderData = @"
+#finalId {
+     z-index: 9999999;
+    position: fixed; /* Cambia absolute a fixed para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    width: 100%; /* Cambia a 100% para asegurarte de cubrir toda la pantalla */
+    height: 100%; /* Cambia a 100% para asegurarte de cubrir toda la pantalla */
+    display: flex; /* Cambia de grid a flex para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+
+     #lottie-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+  opacity: 0;
+        }
+
+      .content {
+           
+            z-index: 9999999999;
+            background-color: #FBFBFF; /* Ensure the content has a background to cover the animation */
+        }
+
+
+.contener_general{-webkit-animation:animball_two 1s infinite;-moz-animation:animball_two 1s infinite;-ms-animation:animball_two 1s infinite;animation:animball_two 1s infinite;width:44px;height:44px} .contener_mixte{width:44px;height:44px;position:fixed} .ballcolor{width:22px;height:22px;border-radius:50%} .ball_1, .ball_2, .ball_3, .ball_4{position:absolute;-webkit-animation:animball_one 1s infinite ease;-moz-animation:animball_one 1s infinite ease;-ms-animation:animball_one 1s infinite ease;animation:animball_one 1s infinite ease} .ball_1{background-color:#CB2025;top:0;left:0} .ball_2{background-color:#F8B334;top:0;left:24px} .ball_3{background-color:#00A096;top:24px;left:0} .ball_4{background-color:#97BF0D;top:24px;left:24px} @-webkit-keyframes animball_one{0%{position:absolute} 50%{top:12px;left:12px;position:absolute;opacity:0.5} 100%{position:absolute}} @-moz-keyframes animball_one{0%{position:absolute} 50%{top:12px;left:12px;position:absolute;opacity:0.5} 100%{position:absolute}} @-ms-keyframes animball_one{0%{position:absolute} 50%{top:12px;left:12px;position:absolute;opacity:0.5} 100%{position:absolute}} @keyframes animball_one{0%{position:absolute} 50%{top:12px;left:12px;position:absolute;opacity:0.5} 100%{position:absolute}} @-webkit-keyframes animball_two{0%{-webkit-transform:rotate(0deg) scale(1)} 50%{-webkit-transform:rotate(360deg) scale(1.2)} 100%{-webkit-transform:rotate(720deg) scale(1)}} @-moz-keyframes animball_two{0%{-moz-transform:rotate(0deg) scale(1)} 50%{-moz-transform:rotate(360deg) scale(1.3)} 100%{-moz-transform:rotate(720deg) scale(1)}} @-ms-keyframes animball_two{0%{-ms-transform:rotate(0deg) scale(1)} 50%{-ms-transform:rotate(360deg) scale(1.3)} 100%{-ms-transform:rotate(720deg) scale(1)}}
+
+#finalId > * {
+    max-width: 100%; /* Puedes ajustar el valor según sea necesario */
+    max-height: 100%; /* Puedes ajustar el valor según sea necesario */
+}
+
+ @media screen and (max-width: 999px)  {
+       div  #finalId {
+                padding-top:0%;
+margin-top:-10%;
+margin-left:-5%;
+ width:110%;
+height:110%;
+            
+            }
+}
+      
+
+
+
+}";
+}
+
+<style>
+    
+
+    
+     @Html.Raw(loaderData) 
+  
+
+         
+     
+
+</style>
+
+<div id="finalId" hidden>
+
+    <div class="contener_general"> <div class="contener_mixte"><div class="ballcolor ball_1">&nbsp;</div></div> <div class="contener_mixte"><div class="ballcolor ball_2">&nbsp;</div></div> <div class="contener_mixte"><div class="ballcolor ball_3">&nbsp;</div></div> <div class="contener_mixte"><div class="ballcolor ball_4">&nbsp;</div></div> </div>
+
+ </div> 
+
+
+ <!-- Modal Eliminar -->
+<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content " style="width:100%">
+            <div class="modal-header TMSHeaderModal">
+                <h5 class="modal-title TMSTituloModal">Tarea a Eliminar</h5>
+                <div class="d-flex align-items-end flex-column">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+            </div>
+            <form asp-action="DeleteInformacionTarea">
+
+
+                <div class="modal-body ">
+                    <div class="form-outline mb-4" hidden>
+                        <label class="form-label btn-color-info TMSlabelText">Id</label>
+                        <input type="text" asp-for="@Model.idTask" id="idLlantaEliminar" class="form-control form-control-lg  TMSTextBoxValores" />
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label btn-color-info TMSlabelText" style="margin-top:28px; font-size:13px">¿Está seguro de querer eliminar esta tarea?</label>
+                    </div>
+                </div>
+
+                <div class="modal-footer TMSHeaderModal">
+                    <button id="eliminarInfoData" style="padding:10px; width:50px;" type="submit" class=" btn btn-success  btn-sm btn-grad">Sí </button>
+                    <button id="eliminarInfoDatos" style="padding:10px; width:50px;" data-bs-dismiss="modal" aria-label="Cerrar" type="button" class=" btn btn-danger  btn-sm btn-grad">No </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="editarTareaModal" tabindex="-1" aria-labelledby="editarTareaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="width:100%">
+            <div class="modal-header TMSHeaderModal ">
+                <h5 class="modal-title TMSTituloModal p-2">Editar Tarea </h5>
+                <div class="d-flex align-items-end flex-column">
+                    <button type="button" style="color: black" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+            </div>
+
+<div class="modal-body  ">
+            <form asp-action="GuardaryEditarInfoTarea">
+
+                
+
+<div class="row" style=" ">
+   
+        <div class="row" style="margin-top:90px; padding:15px;">
+            <label>idtask</label>
+            <input id="idTaskE"  asp-for="@Model.idTask"  type="text"  placeholder="ingrese una tarea"/>
+        </div>
+        <div class="row" style="margin-top:90px; padding:15px;">
+            <label>Tarea</label>
+            <input id="idTareaNomE"  asp-for="@Model.tarea"  type="text"  placeholder="ingrese una tarea"/>
+        </div>
+
+         <div id="PlacaElement10" class="row" style="margin-top:50px;">
+            <label>Usuarios</label>
+         
+    <label  for="inputGroupSelect02">Usuarios</label>
+
+<select id="CabezalId2"  asp-for="@Model.usuarioId" class="form-control alistamientoscabezal" style="font-size:16px;color:blue;" >
+     @if (Model.ListaUsuarios != null)
+     {
+         foreach (var item in Model.ListaUsuarios)
+         {
+<option value="@item.id">@item.nombre</option>
+         }
+     }
+ 
+</select>
+    
+         </div>
+
+        <div class="row" style="margin-top:90px; display:flex; align-items:center; justify-content:center; ">
+            <button type="submit" class="btn btn-success" style="width:150px;">Editar Tarea</button>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+       
+</div>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                     
+             </form>
+
+    </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="row" style=" height:700px; display: flex;">
+    <div class="column" style=" flex: 1; ">
+        <form asp-action="GuardaryEditarInfoTarea">
+
+        <div class="row" style="margin-top:90px;">
+            <label>Tarea</label>
+            <input type="text" asp-for="@Model.tarea"   placeholder="ingrese una tarea"/>
+        </div>
+
+         <div class="row" style="margin-top:50px;">
+
+                 <div id="PlacaElement102" class="row" style="margin-top:50px;">
+            <label>Usuarios</label>
+    <label  for="inputGroupSelect02">Usuarios</label>
+
+<select id="taskid" asp-for="@Model.usuarioId" class="form-control alistamientoscabezal2" style="font-size:16px;color:blue;" >
+     @if (Model.ListaUsuarios != null)
+     {
+         foreach (var item in Model.ListaUsuarios)
+         {
+<option value="@item.id">@item.nombre</option>
+         }
+     }
+ 
+</select>
+  
+         </div>
+         @*    <label>Usuarios</label>
+              <div class="form-group">
+             @if (Model.ListaUsuarios != null)
+                                    {
+                                        @Html.DropDownListFor(m => m.usuarioId,
+                                    new SelectList(Model.ListaUsuarios, "id", "nombre", Model.id),
+                                    new { @class = "form-control", placeholder = "Filtar" , id="taskid",style="text-align:center;  color:blue;",required= "required"}
+                                    )
+
+                                    }
+                                    else
+                                    {
+                                        <select class="custom-select" asp-for="@Model.usuarioId"  id="taskid" style=" margin-left:2%;text-align:center;  color:blue; width:100%">
+                                        </select>
+
+
+                                    }
+        </div> *@
+         </div>
+
+        <div class="row" style="margin-top:90px; display:flex; align-items:center; justify-content:center; ">
+            <button type="submit" class="btn btn-success" style="width:150px;">Crear Tarea</button>
+
+        </div>
+
+
+
+        </form>
+
+
+    </div>
+
+
+
+
+
+    <div class="column" style="flex: 2; padding-top:60px;">
+        <div style="align-items:center; text-align:center; font-weight:bold; font-size:20px; margin-bottom:30px;">Tareas Designadas Para los Estudiantes</div>
+         <div class="table-responsive">
+                    <table class="table table-bordered table-sm  dataTable" id="tablaLlantas">
+
+                        <thead>
+                           
+                            <tr>
+                                <th >
+                                    Nombre estudiante
+                                </th>
+                                <th >
+                                    Tarea
+                                </th>
+                                <th >
+                                    Acciones
+                                </th>
+                               
+                           
+                            </tr>
+                        </thead>
+                      <tbody>
+
+                            @if (Model.ListaTaskViewModel != null)
+                            {
+
+                                @foreach (var item in Model.ListaTaskViewModel)
+                                {
+                                      @Html.HiddenFor(model => item.idTask)
+                                    @Html.HiddenFor(model => item.idEstuduante)
+
+                                    
+                                     
+                                    <tr>
+
+
+                                        <td>
+                                            @Html.DisplayFor(model => item.nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => item.descripcion)
+                                        </td>
+                                      
+
+                                        <td>
+                                            <button title="Editar Tarea" class="btn p-v-sm btn-success btn-sm" style="margin-right: 2px !important;" data-bs-toggle="modal" data-bs-target="#editarTareaModal" onclick="editar({idEstudiante:'@item.idEstuduante' , idTask:'@item.idTask' , tarea:'@item.descripcion' });">
+                                                <i class="bi bi-pen"></i>
+                                            </button>
+
+                                            <button title="Eliminar Tarea" class="btn p-v-sm btn-danger btn-sm" id="btnEliminar" data-bs-toggle="modal" data-bs-target="#eliminarModal" onclick="eliminar({idTask:@item.idTask});">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+
+
+                                        </td>
+                                    </tr>
+                                }
+
+
+
+                            }
+                       
+                        </tbody> 
+                        <tfoot>
+                            
+                            <tr>
+                                <th >
+                                    Nombre estudiante
+                                </th>
+                                <th >
+                                    Tarea
+                                </th>
+                                <th >
+                                    Acciones
+                                </th>
+                               
+                           
+                            </tr>
+                         </tfoot>
+                       
+                    </table>
+
+    </div>
+</div>
+
+       
+</div>
+                
+           
+   
+
+
+
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+     
+
+
+    <script>
+
+
+
+
+        $(document).ready(function () {
+      $('.alistamientoscabezal').select2({
+          width: '80%',
+          dropdownParent: $('#PlacaElement10'), // Asegúrate de que #miDiv6 es el div correcto
+          theme: 'classic', // Si deseas conservar el aspecto clásico de Select2
+          templateSelection: function (data) {
+              return $('<span style="font-size: 19px; color: blue;">' + data.text + '</span>');
+          }
+      });
+
+
+        $('.alistamientoscabezal2').select2({
+          width: '80%',
+          dropdownParent: $('#PlacaElement102'), // Asegúrate de que #miDiv6 es el div correcto
+          theme: 'classic', // Si deseas conservar el aspecto clásico de Select2
+          templateSelection: function (data) {
+              return $('<span style="font-size: 19px; color: blue;">' + data.text + '</span>');
+          }
+      });
+
+
+      });
+
+
+       var estadoChart = false;
+      let myCharts = null;
+        let textoData = "";
+        function getWeekOfYear(date) {
+            const startOfYear = new Date(date.getFullYear(), 0, 1);
+            const diffInMillis = date - startOfYear;
+            const diffInDays = Math.floor(diffInMillis / (24 * 60 * 60 * 1000));
+            const startDay = startOfYear.getDay();
+            const adjustedDays = diffInDays + startDay;
+            const weekOfYear = Math.ceil(adjustedDays / 7);
+            return weekOfYear;
+        }
+        const daysOfWeek = {
+    'Domingo': 0,
+    'Lunes': 1,
+    'Martes': 2,
+    'Miercoles': 3,
+    'Jueves': 4,
+    'Viernes': 5,
+    'Sabado': 6
+};
+
+
+function removeShow(index) {
+    $('#collapse' + index).removeClass('show');
+}
+
+
+function ObtenerVehiculosInfo(){
+
+
+}
+
+function editar(info){
+    $('#idTaskE').val(info.idTask);
+      $("#idTareaNomE").val(info.tarea);
+   //     $("#taskid2").val(info.idEstudiante);
+
+
+}
+
+    function eliminar(tarea) {
+            console.log(tarea);
+            $('#idLlantaEliminar').val(tarea.idTask);
+
+
+        }
+
+
+function getDateForDay(startDate, dayOfWeekIndex) {
+    // Obtén el día de la semana del día de inicio
+    const startDayIndex = startDate.getDay();
+
+    // Calcula la diferencia de días
+    const dayDifference = (dayOfWeekIndex - startDayIndex + 7) % 7;
+
+    // Añade la diferencia de días a la fecha de inicio
+    const resultDate = new Date(startDate);
+    resultDate.setDate(startDate.getDate() + dayDifference);
+    return resultDate;
+}
+
+        function obtenerChartDinamico(texto , dataJson){
+         
+   var semanaTexto = $("#weekInfo").text();   
+
+   var anioTexto = $("#yearInfo").text();
+
+   var semanaNumero = semanaTexto.match(/\d+/)[0];
+var anioNumero = anioTexto.match(/\d+/)[0];
+
+// Convertir los resultados a enteros (opcional)
+semanaNumero = parseInt(semanaNumero);
+anioNumero = parseInt(anioNumero);
+
+ var dates = getWeekStartAndEndDateInicio(anioNumero, semanaNumero);
+
+   var fechaIni = dates.startDate.toLocaleDateString();
+      var fechaFin = dates.endDate.toLocaleDateString();
+
+            var tipo2 = {
+                "fechaInicio": fechaIni,
+                "fechaFin": fechaFin,
+                "tipo":dataJson
+            
+            }
+            var json = JSON.stringify(tipo2);
+                  console.log(json);
+
+if(textoData != texto){
+                textoData = texto; 
+                estadoChart = false;
+   var loadersInfo2 = document.getElementById("finalId");
+              loadersInfo2.removeAttribute("hidden");
+            }
+// console.log("Semana: ", semanaNumero); // Semana: 21
+// console.log("Año: ", anioNumero); 
+ if (estadoChart == false) {
+      var loadersInfo2 = document.getElementById("finalId");
+              loadersInfo2.removeAttribute("hidden");
+                 if (myCharts) {
+            myCharts.destroy();
+        }
+      
+            }else{
+             const divChart2 = document.getElementById('chartData');
+            divChart2.setAttribute("hidden",true);
+            estadoChart = false;
+                var loadersInfo3 = document.getElementById("finalId");
+        loadersInfo3.setAttribute("hidden", true);
+     textoData = "";
+     }
+   
+                     }
+
+
+
+//         $(document).ready(function () {
+
+
+             
+
+
+//             const today = new Date();
+//             const currentWeek = getWeekOfYear(today);
+//          //   console.log(`Estamos en la semana ${currentWeek} del año ${today.getFullYear()}.`);
+//             $('#weekInfo').text(`Semana: ${currentWeek}`);
+//             $("#yearInfo").text(`Año: ${today.getFullYear()}`);
+//             var $semanaSelect = $('#semanaId');
+//     $semanaSelect.append($('<option></option>').val('').text('Seleccione una semana'));
+
+//     function getWeeksInYear(year) {
+//         var d = new Date(year, 0, 1);
+//         var isLeap = new Date(year, 1, 29).getMonth() === 1;
+//         var weeks = Math.ceil((((d.getDay() + (isLeap ? 366 : 365)) - 1) / 7));
+//         return weeks;
+//     }
+
+//     var currentYear = new Date().getFullYear();
+//     var weeksInYear = getWeeksInYear(currentYear);
+
+//     for (var i = 1; i <= weeksInYear; i++) {
+//         var option = $('<option></option>').val('semana' + i).text('Semana ' + i);
+//         $semanaSelect.append(option);
+//     }
+
+//             var $aniosSelect = $('#aniosId');
+
+//             for (var year = 2000; year <= 2040; year++) {
+//                 var option = $('<option></option>').val(year).text(year);
+//                 if (today.getFullYear() == year) {
+//                     option.attr('selected', 'selected'); // Selecciona la opción si es el año actual
+//                 }
+//                 $aniosSelect.append(option);
+//             }
+
+
+//             $('select').select2({});
+
+//             // $semanaSelect.on('change', function () {
+//             //     var selectedSemanaText = $(this).find('option:selected').text();
+//             //     var selectedSemana = selectedSemanaText.replace(/Semana\s*/, '');
+//             //     console.log('Semana seleccionada:', selectedSemana);
+//             // });
+
+//             // $aniosSelect.on('change', function () {
+//             //     var selectedAnio = $(this).val();
+//             //     console.log('Año seleccionado:', selectedAnio);
+//             //     $("#yearInfo").text("Año: "+selectedAnio);
+//             //     // Puedes realizar otras acciones aquí con el valor seleccionado
+//             // });
+
+
+//             function quitarPalabraShow() {
+//     $('#accordionExample .accordion-collapse').on('hidden.bs.collapse', function () {
+//         $(this).prev().find('.accordion-button').removeClass('show');
+//     });
+// }
+
+
+
+//             function getFirstWeekStartDate(year) {
+//                 var date = new Date(year, 0, 1); // 1st January of the given year
+//                 var day = date.getDay();
+//                 var diff = (day <= 4 ? day : day - 7) - 1;
+//                 date.setDate(date.getDate() - diff);
+//                 return date;
+//             }
+
+//             // Función para obtener las fechas de inicio y fin de una semana específica
+//             function getWeekStartAndEndDate(year, week) {
+//                 var firstWeekStartDate = getFirstWeekStartDate(year);
+//                 var startDate = new Date(firstWeekStartDate.getTime());
+//                 startDate.setDate(startDate.getDate() + (week - 1) * 7);
+//                 var endDate = new Date(startDate.getTime());
+//                 endDate.setDate(endDate.getDate() + 6);
+//                 return { startDate: startDate, endDate: endDate };
+//             }
+
+//             // Evento change para obtener el valor seleccionado y calcular las fechas
+//             $semanaSelect.on('change', function () {
+//                 var loadersInfo2 = document.getElementById("finalId");
+//               loadersInfo2.removeAttribute("hidden");
+//                 var selectedSemanaText = $(this).find('option:selected').text();
+//                 $("#weekInfo").text(selectedSemanaText);
+//                 var selectedSemana = selectedSemanaText.replace(/Semana\s*/, '');
+//                 var selectedAnio = $aniosSelect.val();
+//                 if (selectedSemana && selectedAnio) {
+//                     var dates = getWeekStartAndEndDate(selectedAnio, parseInt(selectedSemana));
+//                     console.log('Semana seleccionada:', selectedSemana);
+//                     console.log('Año seleccionado:', selectedAnio);
+//                     console.log('Fecha de inicio:', dates.startDate.toLocaleDateString());
+//                     console.log('Fecha de fin:', dates.endDate.toLocaleDateString());
+//                     // Puedes mostrar estas fechas en el DOM o usarlas según tus necesidades
+//                     var fechaIni = dates.startDate.toLocaleDateString();
+//                     var fechaFin = dates.endDate.toLocaleDateString();
+
+//                     var tipo2 = {
+//                         "fechaInicio": fechaIni,
+//                         "fechaFin": fechaFin
+
+//                     }
+//                     var json = JSON.stringify(tipo2);
+
+
+
+
+//                 }
+//             });
+
+//             $aniosSelect.on('change', function () {
+//                   var loadersInfo2 = document.getElementById("finalId");
+//               loadersInfo2.removeAttribute("hidden");
+
+//                 var selectedSemanaText = $semanaSelect.val();
+//                 var selectedSemana = selectedSemanaText.replace(/semana\s*/, '');
+
+//                 var selectedAnio = $(this).val();
+//                 $("#yearInfo").text("Año: " + selectedAnio);
+//                 if (selectedSemana && selectedAnio) {
+//                     var dates = getWeekStartAndEndDate(selectedAnio, parseInt(selectedSemana));
+//                     console.log('Semana seleccionada:', selectedSemana);
+//                     console.log('Año seleccionado:', selectedAnio);
+//                     console.log('Fecha de inicio:', dates.startDate.toLocaleDateString());
+//                     console.log('Fecha de fin:', dates.endDate.toLocaleDateString());
+//                     // Puedes mostrar estas fechas en el DOM o usarlas según tus necesidades
+
+//                     var fechaIni = dates.startDate.toLocaleDateString();
+//                     var fechaFin = dates.endDate.toLocaleDateString();
+
+//                     var tipo2 = {
+//                         "fechaInicio": fechaIni,
+//                         "fechaFin": fechaFin
+
+//                     }
+//                     var json = JSON.stringify(tipo2);
+
+
+
+
+
+//                 }
+//             });
+
+//         });
+
+
+        function getFirstWeekStartDateInicio(year) {
+            var date = new Date(year, 0, 1); // 1st January of the given year
+            var day = date.getDay();
+            var diff = (day <= 4 ? day : day - 7) - 1;
+            date.setDate(date.getDate() - diff);
+            return date;
+        }
+
+        // Función para obtener las fechas de inicio y fin de una semana específica
+        function getWeekStartAndEndDateInicio(year, week) {
+            var firstWeekStartDate = getFirstWeekStartDate(year);
+            var startDate = new Date(firstWeekStartDate.getTime());
+            startDate.setDate(startDate.getDate() + (week - 1) * 7);
+            var endDate = new Date(startDate.getTime());
+            endDate.setDate(endDate.getDate() + 6);
+            return { startDate: startDate, endDate: endDate };
+        }
+
+        function getWeekStartAndEndDateInicio(year, week) {
+            var firstWeekStartDate = getFirstWeekStartDateInicio(year);
+            var startDate = new Date(firstWeekStartDate.getTime());
+            startDate.setDate(startDate.getDate() + (week - 1) * 7);
+            var endDate = new Date(startDate.getTime());
+            endDate.setDate(endDate.getDate() + 6);
+            return { startDate: startDate, endDate: endDate };
+        }
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+      
+                 var loadersInfo21 = document.getElementById("finalId");
+              loadersInfo21.removeAttribute("hidden");
+            const today = new Date();
+            const currentWeek = getWeekOfYear(today);
+            //   console.log(`Estamos en la semana ${currentWeek} del año ${today.getFullYear()}.`);
+            var dates = getWeekStartAndEndDateInicio(today.getFullYear(), parseInt(currentWeek));
+            console.log('Semana seleccionada:', currentWeek);
+            console.log('Año seleccionado:', today.getFullYear());
+            console.log('Fecha de inicio:', dates.startDate.toLocaleDateString());
+            console.log('Fecha de fin:', dates.endDate.toLocaleDateString());
+
+            var fechaIni = dates.startDate.toLocaleDateString();
+            var fechaFin = dates.endDate.toLocaleDateString();
+
+            var tipo2 = {
+                "fechaInicio": fechaIni,
+                "fechaFin": fechaFin
+            
+            }
+            var json = JSON.stringify(tipo2);
+
+      
+             var loadersInfo31 = document.getElementById("finalId");
+        loadersInfo31.setAttribute("hidden", true);
+
+         
+        });
+    </script>
+
+   }

@@ -1,0 +1,170 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.dtHorizontalVerticalExampleWrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#dtHorizontalVerticalExample th, td {
+    white-space: nowrap;
+}
+
+.modales {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-contents {
+    background-color: white;
+    width: 100%;
+    max-width: 1400px;
+    margin: 5% auto;
+    padding: 20px;
+    position: relative;
+}
+
+.closes {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+    bottom: .5em;
+}
+.custom-dialog {
+    max-width: 90% !important; /* Ajusta el valor según tus preferencias */
+    height: 90vh !important; /* Ajusta la altura según tus preferencias */
+    top:1% !important;
+    left: 2% !important;
+    
+}
+/* Estilos personalizados para la tabla dentro del modal */
+.custom-table {
+    max-height: 300px;  Altura máxima para que aparezca la barra de desplazamiento 
+    /*overflow-y: auto;*/ /* Barra de desplazamiento vertical */
+}
+/* Estilos personalizados para el modal */
+
+
+.myLoader {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    z-index: 2000;
+    opacity: 0.5;
+    position: absolute;
+    max-height: auto;
+    top: 0;
+}
+
+.container1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ring {
+    width: 200px;
+    height: 200px;
+    border: 0px solid white;
+    border-radius: 50%;
+    position: absolute;
+}
+
+    .ring:nth-child(1) {
+        border-bottom-width: 8px;
+        border-color: rgb(255,0,255);
+        animation: rotate1 2s linear infinite;
+    }
+
+    .ring:nth-child(2) {
+        border-right-width: 8px;
+        border-color: rgb(0,247,255);
+        animation: rotate2 2s linear infinite;
+    }
+
+    .ring:nth-child(3) {
+        border-right-width: 8px;
+        border-color: rgb(0,255,13);
+        animation: rotate3 2s linear infinite;
+    }
+
+
+@keyframes rotate1 {
+    0% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+}
+
+.loading {
+    color: white;
+}
+
+@keyframes rotate2 {
+    0% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate3 {
+    0% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
+}

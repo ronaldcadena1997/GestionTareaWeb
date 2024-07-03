@@ -1,0 +1,178 @@
+﻿:root {
+    --estado-buda: 0.3s;
+    --cada-item: 28px;
+    --cantidad-items: 0;
+}
+
+
+
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 16px;
+}
+
+    nav ul li {
+       
+    }
+
+    nav ul a:hover {
+        background-color: #ebf5fb;
+        text-decoration: none;
+    }
+
+    nav ul a {
+        box-sizing: border-box;
+        background: white;
+        display: block;
+        width: 100%;
+        padding: 15px;
+       
+        text-decoration: none;
+        border-radius: 8px;
+    }
+
+/*    nav ul ul {
+        height: 0px;
+        overflow: hidden;
+        transition: var(--estado-buda);
+        counter-reset: items;
+    }*/
+
+  /*      nav ul ul li {
+            counter-increment: items;
+        }*/
+
+
+  /*  nav ul li:hover ul {
+        height: auto;
+        max-height: auto;
+        overflow-y: auto;
+        background: #f8f9f9;
+       
+        margin-left: 29px;
+    }
+*/
+
+    /*nav ul li ul {
+        height: auto;
+        max-height: auto;
+        overflow-y: auto;
+        background: #f8f9f9;
+        margin-left: 29px;
+        transition: height 0.3s ease;*/ /* Transición para el despliegue suave */
+    /*}*/
+
+.nav-cerrada {
+    height: 0;
+    max-height: 0;
+    overflow-y: hidden;
+    background: #f8f9f9;
+    margin-left: 22px;
+    transition: max-height 1.9s ease;
+}
+
+/* Estilos cuando el menú está abierto */
+.nav-abierta {
+    height: auto;
+    max-height: auto;
+    overflow-y: auto;
+    background: #f8f9f9;
+    margin-left: 15px;
+    margin-right: 5px;
+    transition: max-height 1.9s ease; /* Transición para el despliegue suave */
+}
+
+/* Clase que controlará el menú desplegable */
+/* ul {
+    height: auto;
+    max-height: auto;
+    overflow-y: auto;
+}*/
+
+#menuDesplegable {
+    overflow-y: auto;
+}
+.menuItems {
+    color: #5499c7;
+}
+
+    .menuItems p {
+     padding:5px;
+    }
+
+
+    .menuItems a {
+        user-select: none;
+        border-left: 2px blue solid;
+        text-decoration: none; /* Quitar subrayado predeterminado */
+        border-bottom: none; /* Quitar borde inferior */
+    }
+.itemsData {
+    border-left: 2px blue solid;
+   /* border-right: 3px blue solid;*/
+}
+.itemsData:hover {
+    background: #ebf5fb;
+    color: black;
+}
+
+nav ul ul a {
+    background: transparent;
+}
+
+.itemsDataBorder{
+
+
+}
+/*.flechas::after {*/
+   /* Código Unicode para la flecha hacia abajo */
+
+    /*font-size: 14px;
+}*/
+
+.iconoFlecha {
+    content: "\25BC";
+   
+}
+
+/*.flechas {
+    border: 2px solid red;
+}*/
+
+
+.select2-container {
+    z-index: 99999999; /* Ajusta este valor según sea necesario para asegurarte de que esté por encima de otros elementos */
+}
+
+.dropdown {
+    position: relative;
+}
+
+.search-input {
+    width: calc(100% - 12px); /* Ajusta el ancho para que coincida con el DropDownList */
+    margin: 4px; /* Ajusta el margen para que coincida con el DropDownList */
+    display: block;
+}
+
+.dropdown-list-fin {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000; /* Asegura que el dropdown esté por encima de otros elementos */
+}
+
+
+.colorDateTime{
+    color:blue;
+    font-size:14px;
+
+}
+

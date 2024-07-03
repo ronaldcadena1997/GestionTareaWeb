@@ -1,0 +1,397 @@
+﻿@model GestionTareaWeb.Models.Login
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+@{
+    // Define la regla @media dentro de una sección <style> en el bloque de código Razor
+ string mediaStyleMax = @"
+
+
+
+#finalIdSplash {
+     z-index: 9999999;
+    position: fixed; /* Cambia absolute a fixed para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    background-color:white; 
+    width: 100%; /* Cambia a 100% para asegurarte de cubrir toda la pantalla */
+    height: 100%; /* Cambia a 100% para asegurarte de cubrir toda la pantalla */
+    display: flex; /* Cambia de grid a flex para centrar el contenido */
+   justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+#finalId {
+     z-index: 9999999;
+    position: fixed; /* Cambia absolute a fixed para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    width: 100%; /* Cambia a 100% para asegurarte de cubrir toda la pantalla */
+    height: 100%; /* Cambia a 100% para asegurarte de cubrir toda la pantalla */
+    display: flex; /* Cambia de grid a flex para centrar el contenido */
+}
+
+ @media screen and (max-width: 999px)  {
+       div  #finalId {
+                padding-top:0%;
+margin-top:-10%;
+margin-left:-5%;
+ width:110%;
+height:110%;
+            
+            }
+
+
+
+}
+
+
+
+        @media screen and (min-width: 769px) and (max-width: 993px) {
+            .gallery-img {
+                height: 80px;
+                width: 50px;
+            
+            }
+            .divContainer {
+                height: 230px;
+                width: 600px;
+               
+            }
+        }
+    ";
+
+
+
+  string mediaStyleMax2 = @"
+        @media screen and (min-width: 400px) and (max-width: 769px) {
+            .gallery-img2 {
+                 height: 100px;
+                width: 100px;
+               
+                margin-left:25px;
+            }
+
+            .gallery-img3 {
+                 height: 100px;
+                width: 130px;
+                
+              
+            }
+            .divContainer2 {
+                height: 260px;
+                width: 500px;
+               
+            }
+        }
+    ";
+
+
+
+      string mediaStyleMax3 = @"
+
+
+        @media screen and (max-width: 994px) {
+           
+            
+        }
+
+            @media screen and (min-width: 200px) and (max-width: 400px) {
+
+            .img4{
+               padding-top:90px; 
+            }
+
+            .gallery-img4 {
+                display: none;   
+             }
+
+            .divCont {
+            height:300px;
+            }
+            
+            }
+
+.cubes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+}
+
+.loop {
+  transform: rotateX(-35deg) rotateY(-45deg) translateZ(1.5625em);
+}
+
+@keyframes s {
+  to {
+    transform: scale3d(0.2, 0.2, 0.2);
+  }
+}
+
+.item {
+  margin: -1.5625em;
+  width: 3.125em;
+  height: 3.125em;
+  transform-origin: 50% 50% -1.5625em;
+  box-shadow: 0 0 0.125em currentColor;
+  background: currentColor;
+  animation: s 0.6s cubic-bezier(0.45, 0.03, 0.51, 0.95) infinite alternate;
+}
+
+.item:before,
+.item:after {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  transform-origin: 0 100%;
+  box-shadow: inherit;
+  background: currentColor;
+  content: "";
+}
+
+.item:before {
+  bottom: 100%;
+  transform: rotateX(90deg);
+}
+
+.item:after {
+  left: 100%;
+  transform: rotateY(90deg);
+}
+
+.item:nth-child(1) {
+  margin-top: 6.25em;
+  color: #fe1e52;
+  animation-delay: -1.2s;
+}
+
+.item:nth-child(1):before {
+  color: #ff6488;
+}
+
+.item:nth-child(1):after {
+  color: #ff416d;
+}
+
+.item:nth-child(2) {
+  margin-top: 3.125em;
+  color: #fe4252;
+  animation-delay: -1s;
+}
+
+.item:nth-child(2):before {
+  color: #ff8892;
+}
+
+.item:nth-child(2):after {
+  color: #ff6572;
+}
+
+.item:nth-child(3) {
+  margin-top: 0em;
+  color: #fe6553;
+  animation-delay: -0.8s;
+}
+
+.item:nth-child(3):before {
+  color: #ffa499;
+}
+
+.item:nth-child(3):after {
+  color: #ff8476;
+}
+
+.item:nth-child(4) {
+  margin-top: -3.125em;
+  color: #fe8953;
+  animation-delay: -0.6s;
+}
+
+.item:nth-child(4):before {
+  color: #ffb999;
+}
+
+.item:nth-child(4):after {
+  color: #ffa176;
+}
+
+.item:nth-child(5) {
+  margin-top: -6.25em;
+  color: #feac54;
+  animation-delay: -0.4s;
+}
+
+.item:nth-child(5):before {
+  color: #ffce9a;
+}
+
+.item:nth-child(5):after {
+  color: #ffbd77;
+}
+
+.item:nth-child(6) {
+  margin-top: -9.375em;
+  color: #fed054;
+  animation-delay: -0.2s;
+}
+
+.item:nth-child(6):before {
+  color: #ffe49a;
+}
+
+.item:nth-child(6):after {
+  color: #ffda77;
+}
+
+        ";
+}
+
+<style>
+    @Html.Raw(mediaStyleMax) 
+    @Html.Raw(mediaStyleMax2) 
+    @Html.Raw(mediaStyleMax3)
+           
+</style>
+
+<section class="vh-90">
+<div id="finalIdSplash" hidden>
+     <div  id="inicioLottieSplash" style="height: 100%;"></div>
+   <div id="animatedText">
+         <span id="gmaText" class="word-container"></span>
+        <span id="atcotransText" class="word-container"></span>
+
+   </div>
+
+</div>
+   <div id="finalId" hidden>
+<div class="loop cubes">
+    <div class="item cubes"></div>
+    <div class="item cubes"></div>
+    <div class="item cubes"></div>
+    <div class="item cubes"></div>
+    <div class="item cubes"></div>
+    <div class="item cubes"></div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-4" id="inicioLottie" style="height: 90%;"></div>
+        <div class="col-md-6">
+            <div class="d-flex flex-row align-items-center">
+                <p class="lead fw-normal mb-0 me-3 h2" style="color:black; font-size:30px;">Ingreso al Sistema</p>
+                <p></p>
+            </div>
+            <!-- Email input -->
+            <form asp-action="Index">
+                <div class="form-outline mb-4">
+                    <label class="form-label btn-color-info text-body" for="form3Example3">Usuario</label>
+                    <input id="idUsuario" type="email" asp-for="@Model.User" class="form-control form-control-lg text-body" placeholder="Ingrese un usuario/correo válido" />
+                </div>
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                    <label class="form-label btn-color-info text-body" for="form3Example4">Contraseña</label>
+                    <input id="idContrasena" type="password" asp-for="@Model.Password" class="form-control form-control-lg text-body" placeholder="Ingrese la contraseña" />
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Checkbox -->
+                    <div class="form-check mb-0">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="ChkRecordar" />
+                        <label class="form-check-label" for="form2Example3">
+                            Recordar
+                        </label>
+                    </div>
+                    <a href="#!" class="text-body">¿Olvido la contraseña?</a>
+                </div>
+                <div class="text-center mt-4 pt-2">
+                    <button id="loginId" type="submit" value="submit" class="btn btn-lg TMSButtom" asp-action="Index">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</section>
+
+
+@section Scripts {
+
+    <script src="~/Content/jquery-2.2.4.js"></script>
+    <script src="~/Content/bootstrap.js"></script>
+
+     <script type="text/javascript">
+         
+          document.addEventListener("DOMContentLoaded", function () {
+     //            var loadersInfo32 = document.getElementById("finalIdSplash");
+     //        loadersInfo32.removeAttribute("hidden");
+     // // const text1 = "GMA";
+     // //    const text2 = "ATCOTRANS";
+     // //    const gmaTextDiv = document.getElementById("gmaText");
+     // //    const atcotransTextDiv = document.getElementById("atcotransText");
+
+     // //    function showNextLetter(text, index, container) {
+     // //        if (index < text.length) {
+     // //            const span = document.createElement('span');
+     // //            span.textContent = text[index];
+     // //            span.className = 'letter';
+     // //            span.style.animationDelay = `${index * 0.2}s`; // Delay based on the index
+     // //            container.appendChild(span);
+     // //            setTimeout(() => showNextLetter(text, index + 1, container), 100); // Adjust the delay as needed
+     // //        }
+     // //    }
+
+     // //    // Clear the text containers before starting the animation
+     // //    gmaTextDiv.innerHTML = '';
+     // //    atcotransTextDiv.innerHTML = '';
+     
+        
+     //    // showNextLetter(text1, 0, gmaTextDiv);
+     //    // setTimeout(() => showNextLetter(text2, 0, atcotransTextDiv), text1.length * 100); // Start second word after the first
+
+     //    setTimeout(() => {
+     //        var loadersInfo31 = document.getElementById("finalIdSplash");
+     //        loadersInfo31.setAttribute("hidden", true);
+     //    }, (2000)); // Adjust this timeout based on your animation timing
+    
+             var animation2 = lottie.loadAnimation({
+                container: document.getElementById('inicioLottieSplash'), // el ID del contenedor
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'https://lottie.host/17aa761e-d11c-4833-9508-01de6b71c809/5CBXpwWvtt.json' // la URL externa del archivo JSON de la animación
+            });
+              var animation = lottie.loadAnimation({
+                container: document.getElementById('inicioLottie'), // el ID del contenedor
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'https://lottie.host/01ae88e2-a4e7-428c-95fc-dba6dd32beaa/ggPRNoUtJz.json' // la URL externa del archivo JSON de la animación
+            });
+           
+        
+        });
+        $(document).ready(function () {
+     
+            var loadersInfo3 = document.getElementById("finalId");
+            loadersInfo3.setAttribute("hidden", true);
+        });
+
+
+
+         $("#loginId").click(function () {
+
+            var usuario = $("#idUsuario").val();
+            var contrasena = $("#idContrasena").val();
+             console.log(usuario);
+
+            console.log(contrasena);
+if (usuario != ""  && contrasena != "") { 
+               var loadersInfo2 = document.getElementById("finalId");
+              loadersInfo2.removeAttribute("hidden");
+        }
+            });
+     
+     </script>
+
+}

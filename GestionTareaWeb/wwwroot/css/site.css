@@ -1,0 +1,1177 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.estiloTextBox {
+    font-size: 14px;
+    text-align: center;
+    margin-left: 35%;
+}
+
+.modales {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.excel-row {
+    background-color: #EDFFFC; /* Color de fondo personalizado */
+}
+
+.excel-cell {
+    /* Estilos adicionales para las celdas si es necesario */
+}
+
+
+.modal-contents {
+    background-color: white;
+    width: 100%;
+    max-width: 1400px;
+    margin: 5% auto;
+    padding: 20px;
+    position: relative;
+}
+
+.closes {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.miDiv {
+    position: absolute;
+    z-index: 1250; /* Un valor mayor que el z-index del modal */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    width: 50%;
+    top: 50%; /* Ajusta la posición verticalmente */
+    left: 50%; /* Ajusta la posición horizontalmente */
+    transform: translate(-50%, -80%);
+    border: 1px solid #ccc;
+}
+
+.miDivEspecial2 {
+    position: absolute;
+    z-index: 1550; /* Un valor mayor que el z-index del modal */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    width:27%;
+    top: 39%; /* Ajusta la posición verticalmente */
+    left: 50%; /* Ajusta la posición horizontalmente */
+    transform: translate(-50%, -80%);
+    border: 1px solid #ccc;
+    border-radius:29px;
+    padding:15px;
+
+}
+.miDivEspecial20 {
+    position: absolute;
+    z-index: 9050; /* Un valor mayor que el z-index del modal */
+    background-color: rgb(255, 0, 0); /* Fondo semi-transparente */
+    width: 27%;
+    top: 40%; /* Ajusta la posición verticalmente */
+    left: 50%; /* Ajusta la posición horizontalmente */
+    transform: translate(-50%, -80%);
+    border: 1px solid #ccc;
+    border-radius: 29px;
+    padding: 15px;
+}
+
+.miDiv2 {
+    position: absolute;
+    z-index: 1250; /* Un valor mayor que el z-index del modal */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    width: 50%;
+    top: 50%; /* Ajusta la posición verticalmente */
+    left: 50%; /* Ajusta la posición horizontalmente */
+    transform: translate(-50%, -80%);
+    border: 1px solid #ccc;
+}
+
+.miDiv3 {
+    position: absolute;
+    z-index: 1050; /* Un valor mayor que el z-index del modal */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+
+    top: 0%; /* Ajusta la posición verticalmente */
+    left: 0%; /* Ajusta la posición horizontalmente */
+    transform: translate(0%, 0%);
+    border: 1px solid #ccc;
+    width: 100%; /* Ancho del div */
+    height: 100%; /* Alto del div */
+}
+#recuadro {
+    position: absolute;
+    z-index: 1050;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    top: 40%; /* Ajusta la posición verticalmente al centro */
+    left: 30%; /* Ajusta la posición horizontalmente al centro */
+    transform: translate(0%, 0%); /* Corrige la posición al centro */
+    border: 1px solid #ccc;
+    width: 400px;
+    height: 190px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "partef1 partef1 partef1"
+        "partef2 partef2 partef2"
+        "partef3 partef3 partef3"
+        "partef5 partef5 partef5"
+        "partef6 partef6 partef6";
+}
+#recuadroChasis {
+    position: absolute;
+    z-index: 1051;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 11);
+    top: 40%; /* Ajusta la posición verticalmente al centro */
+    left: 30%; /* Ajusta la posición horizontalmente al centro */
+    transform: translate(0%, 0%); /* Corrige la posición al centro */
+    border: 1px solid #ccc;
+    width: 400px;
+    height: 190px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "partefc1 partefc1 partefc1"
+        "partefc2 partefc2 partefc2"
+        "partefc2 partefc2 partefc2"
+        "partefc2 partefc2 partefc2"
+        "partefc3 partefc3 partefc3";
+}
+
+#rec7 {
+    grid-area: partefc2;
+ 
+  display:grid;
+    place-items: center;
+    font-weight: bold;
+}
+#rec8 {
+    grid-area: partefc1;
+    text-align: center;
+    font-weight: bold;
+}
+
+#rec9 {
+    grid-area: partefc3;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+#rec1 {
+    grid-area: partef1;
+    text-align: center;
+    font-weight:bold;
+}
+
+#rec2 {
+    grid-area: partef2;
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+   
+   
+    place-items: center;
+}
+
+
+#rec5 {
+    display:grid;
+    place-items:center;
+    grid-area: partef5;
+
+
+}
+#rec6 {
+    display: grid;
+    place-items: center;
+    grid-area: partef6;
+    color:lightseagreen;
+}
+#fechaActual{
+    color:blue;
+    background-color:ghostwhite;
+
+
+}
+.miDiv4 {
+    position: absolute;
+    z-index: 1050; /* Un valor mayor que el z-index del modal */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    border:2px solid red;
+    top: 0%; /* Ajusta la posición verticalmente */
+    left: 0%; /* Ajusta la posición horizontalmente */
+    transform: translate(0%, 0%);
+    border: 1px solid #ccc;
+    width: 100%; /* Ancho del div */
+    height: 100%; /* Alto del div */
+}
+
+.miDiv5 {
+    position: absolute;
+    z-index: 1050; /* Un valor mayor que el z-index del modal */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    display:grid;
+    width:100%;
+    height:100%;
+    top: 0%; /* Ajusta la posición verticalmente */
+    left: 0%; /* Ajusta la posición horizontalmente */
+    transform: translate(0%, 0%);
+    border: 1px solid #ccc;
+   
+}
+
+.miDiv5Final {
+    display: grid;
+    align-items: start;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 3fr 3fr ;
+    grid-template-areas:
+        "partef10 partef10 partef10 "
+        "partef40 partef40 partef20 "
+        "partef50 partef60 partef30 "
+       ;
+    height: 60%;
+    gap: 20px;
+}
+
+
+    @media screen and (max-width:992px) {
+        .miDiv5 {
+            position: absolute;
+            gap: 10px;
+            margin: 0 auto;
+            top: 0%; /* Ajusta la posición verticalmente */
+            left: 0%; /* Ajusta la posición horizontalmente */
+            transform: translate(0%, 0%);
+            border: 1px solid #ccc;
+            width: 100%; /* Ancho del div */
+            height: 100%; /* Alto del div */
+        }
+
+        .dataFin2 {
+            display: grid;
+            place-items: center;
+            padding-left: 15px;
+        }
+
+        .dataFin3 {
+            display: grid;
+            place-items: center;
+            padding-left: 15px;
+        }
+    }
+
+    @media screen and (max-width:486px) {
+        .miDiv5 {
+            border: 1px solid #ccc;
+            width: 100%; /* Ancho del div */
+            height: 100%; /* Alto del div */
+        }
+
+        .miDiv5Final {
+            width: 100%; /* Ancho del div */
+            height: 100%; /* Alto del div */
+        }
+    }
+
+    .dataFin1 {
+        grid-area: partef10;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        place-items: center;
+    }
+
+    .dataFin2 {
+        grid-area: partef20;
+        margin-left: 24px;
+    }
+
+    .dataFin3 {
+        grid-area: partef30;
+        margin-left: 24px;
+    }
+
+    #observacion, #observacion2 {
+        display: grid;
+        place-items: center;
+    }
+
+    #idTablaMM {
+        position: absolute;
+        z-index: 1200;
+        background-color: white;
+        margin: 0 auto;
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: auto;
+        border: 1px solid black;
+    }
+
+#idTablaMM2 {
+    position: absolute;
+    z-index: 99999;
+    border: 1px solid black;
+    top: 0.5%;
+    left: 20%;
+    background-color: whitesmoke;
+    width: 60%;
+}
+
+#miDiv6 {
+    position: absolute;
+    z-index: 1102;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    top: 2%;
+    left: 20%;
+    display: grid;
+    padding: 10px;
+    border: 1px solid black;
+    width: 60%;
+    height: 78%;
+    overflow-y: auto;
+}
+
+
+    #miDivReporteGeneral {
+        position: absolute;
+        z-index: 1102;
+        background-color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+        top: 2%;
+        left: 20%;
+        display: grid;
+        padding: 10px;
+        border: 1px solid black;
+        width: 60%;
+        height: 75%;
+        overflow-y: auto;
+    }
+
+
+    #miDiv100 {
+        position: absolute;
+        z-index: 1120;
+        background-color: rgba(255, 255, 255, 0.9);
+        display: grid;
+        top: 1%;
+        left: 20%;
+        width: 60%;
+        height:78%;
+        border: 1px solid #ccc;
+    }
+
+    /*@media screen and (max-width:1486px) {
+    #miDiv100 {
+    
+        top: 0;
+        left: 20%;
+      
+        width: 60%;
+        height: 40%;
+    }
+
+}
+
+@media screen and (max-width:1550px) {
+    #miDiv100 {
+        top: 0;
+        left: 20%;
+        width: 60%;
+        height: 40%;
+    }
+}
+
+@media screen and (max-width:1334px) {
+    #miDiv100 {
+        top: 0;
+        left: 18%;
+        width: 65%;
+        height: 40%;
+    }
+}
+
+@media screen and (max-width:1251px) {
+    #miDiv100 {
+        top: 0;
+        left: 15%;
+        width: 70%;
+        height: 40%;
+    }
+}
+
+@media screen and (max-width:1150px) {
+    #miDiv100 {
+        top: 0;
+        left: 13%;
+        width: 76%;
+        height: 77%;
+    }
+}
+@media screen and (max-width:1096px) {
+    #miDiv100 {
+        top: 0;
+        left: 10%;
+        width: 85%;
+        height: 77%;
+    }
+}
+
+@media screen and (max-width:1013px) {
+    #miDiv100 {
+        top: 0;
+        left: 5%;
+        width: 92%;
+        height: 77%;
+    }
+}
+
+@media screen and (max-width:952px) {
+    #miDiv100 {
+        top: 0;
+        left: 0%;
+        width: 100%;
+        height: 77%;
+    }
+}*/
+
+@media screen and (max-width:677px) {
+    #VehAsignado{
+        font-size:8px;
+    }
+    #botonResetearFiltro {
+        font-size: 12px;
+    }
+
+}
+
+
+    @media screen and (max-width:999px) {
+        #miDiv100 {
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 95%;
+            display: grid;
+        }
+
+            #miDiv100 .finalDiv100 {
+                display: grid;
+                grid-template-columns: 4fr 3fr 3fr 3fr;
+                grid-template-rows: 1fr 1fr 10fr 1fr 4fr;
+                grid-template-areas:
+                    "parteh1 parteh2 parteh3 parteh4"
+                    "parteh6 parteh5 parteh5 parteh5"
+                    "parteh8 parteh8 parteh8 parteh8"
+                    "parteh8 parteh8 parteh8 parteh8"
+                    "parteh7 parteh7 parteh9 parteh9";
+            }
+
+        .finalDiv100 .elemntoPos8 {
+            max-height: 480px;
+        }
+
+        .finalDiv100 .elemntoPos7 #miTextarea {
+            margin-top: 10px;
+            padding-top: 10px;
+            width: 80%;
+            border: 1px solid black;
+        }
+    }
+
+    .finalDiv100 {
+        display: grid;
+        grid-template-columns: 2fr 3fr 2fr 1fr;
+        grid-template-rows: 2fr 2fr 11fr 3fr 3fr;
+        grid-template-areas:
+            "parteh1 parteh2 parteh3 parteh4"
+            "parteh5 parteh5 parteh5 parteh5"
+            "parteh6 parteh8 parteh8 parteh8"
+            "parteh7 parteh8 parteh8 parteh8"
+            "parteh9 parteh8 parteh8 parteh8";
+        font-size: 13px;
+        width: 100%;
+        gap: 20px;
+        height: 90%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .finalDiv6 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        grid-template-rows: 2fr 4fr 4fr;
+        grid-template-areas:
+            "parte1 parte2 parte2"
+            "parte3 parte4 parte4"
+            "parte3 parte4 parte4";
+        font-size: 13px;
+        gap: 1px;
+        width: 100%;
+        height: 90%;
+    }
+
+    .finalReporteGeneral {
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        grid-template-rows: 2fr 4fr 4fr;
+        grid-template-areas:
+            "Reporte1 Reporte1 Reporte1 Reporte1"
+            "Reporte2 Reporte2 Reporte3 Reporte4"
+            "Reporte5 Reporte5 Reporte6 Reporte6"
+            "Reporte5 Reporte5 Reporte6 Reporte6"
+            "Reporte7 Reporte7 Reporte8 Reporte8"
+            "Reporte9 Reporte9 Reporte9 Reporte9";
+        font-size: 15px;
+        gap: 1px;
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+    .modalHeaderGrid {
+        display: grid;
+        grid-template-columns: 3fr 2fr 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "parte1s parte2s parte3s parte4s"
+            "parte5s parte5s parte5s parte5s";
+        font-size: 13px;
+        gap: 1px;
+        width: 100%;
+        height: 100%;
+        border-bottom: 2px solid black;
+    }
+
+
+    .bodysAnchura {
+        width: 101%;
+    }
+
+    @media screen and (max-width:490px) {
+        .elemntoPos2 #obtenerTermicoFinalTer {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .elemntoPos3 #obtenerTermicoFinalTer2 {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .elemntoPos1 #idTextMontaje {
+            font-size: 12px;
+        }
+    }
+
+    @media screen and (min-width:460px) and (max-width:996px) {
+
+
+        .elemntoPos1 #idTextMontaje {
+            font-size: 17px;
+        }
+    }
+
+    .elemntoPos1 {
+        font-size: 18px;
+        grid-area: parteh1;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .elemntoPos2 {
+        font-size: 20px;
+        grid-area: parteh2;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .elemntoPos3 {
+        font-size: 20px;
+        grid-area: parteh3;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+
+    .elemntoPos4 {
+        grid-area: parteh4;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+
+    .elemntoPos5 {
+        grid-area: parteh5;
+        display: grid;
+        justify-items: center;
+        align-items: center
+    }
+
+    .elemntoPos6 {
+        grid-area: parteh6;
+        text-align: center;
+    }
+
+    .elemntoPos7 {
+        grid-area: parteh7;
+        display: grid;
+        justify-items: start;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .elemntoPos8 {
+        grid-area: parteh8;
+        position: relative;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        overflow-y: scroll; /* Esto añade un scroll vertical */
+        max-height: 480px; /* Esto establece la altura máxima del contenedor antes de que aparezca el scroll */
+    }
+
+    .elemntoPos9 {
+        grid-area: parteh9;
+        display: grid;
+        justify-items: center;
+        align-items: start;
+        align-content: center;
+    }
+
+    @media screen and (max-width: 992px) {
+        .finalDiv6 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            grid-template-rows: 1fr 1fr 8fr;
+            grid-template-areas:
+                "parte1 parte2 parte2"
+                "parte3 parte3 parte3"
+                "parte4 parte4 parte4";
+            font-size: 13px;
+            gap: 1px;
+            width: 100%;
+            height: 90%;
+            place-content: center;
+        }
+
+        .element1 {
+            font-size: 11px;
+        }
+
+        .element3 {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            place-content: center;
+            justify-items: center;
+            gap: 15px;
+        }
+
+        .miDivEspecial2 {
+            margin-left: 0%;
+            width: 50%;
+        }
+    }
+
+
+    .element1 {
+        grid-area: parte1;
+    }
+
+    .element2 {
+        display: grid;
+        grid-area: parte2;
+        grid-template-columns: 4fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .element3 {
+        grid-area: parte3;
+        padding-left: 15px;
+    }
+
+    .element4 {
+        grid-area: parte4;
+        overflow-y: scroll; /* Esto añade un scroll vertical */
+        max-height: 470px; /* Esto establece la altura máxima del contenedor antes de que aparezca el scroll */
+    }
+
+
+
+    .termico-message {
+        position: absolute;
+        left: 150px;
+        top: -20%;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        display: none;
+    }
+
+    /*#miTextarea {
+        width: 20% !important;*/ /* Ancho del textarea */
+        /*padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-left: 2%;*/ /* Mover el botón a la derecha */
+        /*margin-top: -15% !important;
+        position: absolute !important;
+        z-index: 9050;*/ /* Ajusta este valor según sea necesario para asegurarte de que el textarea esté por encima de otros elementos */
+    /*}*/
+
+    .error-border {
+        border: 2px solid red; /* Establece el borde en rojo */
+    }
+
+    .error-message {
+        color: red;
+    }
+
+    #mensajeErrorK {
+        grid-area: partef3;
+        text-align: center;
+    }
+
+    .tabla-con-scroll {
+        max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+        overflow-y: scroll;
+    }
+
+    .custom-dialog {
+        max-width: 90% !important; /* Ajusta el valor según tus preferencias */
+        height: 90vh !important; /* Ajusta la altura según tus preferencias */
+        top: 1% !important;
+        left: 2% !important;
+    }
+
+    .myLoader {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: black;
+        z-index: 2000;
+        opacity: 0.5;
+        position: absolute;
+        max-height: auto;
+        top: 0;
+    }
+
+    #FondoPantalla {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #2C2C2C;
+        opacity: 0.6;
+        z-index: 999; /* Asegúrate de que tenga un índice Z alto para que esté por encima de otros elementos */
+    }
+#FondoPantalla2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2C2C2C;
+    opacity: 0.7;
+    z-index: 999; /* Asegúrate de que tenga un índice Z alto para que esté por encima de otros elementos */
+}
+    .container1 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ring {
+        width: 200px;
+        height: 200px;
+        border: 0px solid white;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+        .ring:nth-child(1) {
+            border-bottom-width: 8px;
+            border-color: rgb(255,0,255);
+            animation: rotate1 2s linear infinite;
+        }
+
+        .ring:nth-child(2) {
+            border-right-width: 8px;
+            border-color: rgb(0,247,255);
+            animation: rotate2 2s linear infinite;
+        }
+
+        .ring:nth-child(3) {
+            border-right-width: 8px;
+            border-color: rgb(0,255,13);
+            animation: rotate3 2s linear infinite;
+        }
+
+
+    @keyframes rotate1 {
+        0% {
+            transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+        }
+
+        100% {
+            transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+        }
+    }
+
+    .loading {
+        color: white;
+    }
+
+    @keyframes rotate2 {
+        0% {
+            transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+        }
+
+        100% {
+            transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+        }
+    }
+
+    @keyframes rotate3 {
+        0% {
+            transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+        }
+
+        100% {
+            transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+        }
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotateY(0deg);
+        }
+
+        to {
+            transform: rotateY(180deg);
+        }
+    }
+
+    @keyframes rotateIcon {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+
+    @keyframes rotateIcons {
+        from {
+            transform: rotateY(0deg);
+        }
+
+        to {
+            transform: rotateY(180deg);
+        }
+    }
+
+    #btnVehiR:hover .navbar-toggler-icon {
+        animation: rotate 2s linear infinite;
+        border: none;
+    }
+
+
+    .rotate-icon:hover .bi-arrow-left-short {
+        animation: rotateIcons 2s linear infinite; /* Rotar el icono 45 grados */
+    }
+
+
+    @keyframes rotatesImages {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    /* Aplica la animación a la clase 'rotate' */
+    .rotatesImages {
+        animation: rotatesImages 1s linear infinite; /* Aplica la animación de rotación */
+    }
+
+
+    .nav-item:hover {
+        background-color: #e6f9fc;
+        color: darkslateblue;
+        text-shadow: 0.2px 0.2px 0.2px rgba(0, 0, 0, 0.5);
+    }
+
+    .listadosDrop:hover {
+        background-color: #e6f9fc;
+        color: darkslateblue;
+        text-shadow: 0.2px 0.2px 0.2px rgba(0, 0, 0, 0.5);
+    }
+
+
+
+    .custom-dropdown-menu {
+        width: auto;
+        margin: 0;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: #ffffff;
+        padding: 10px;
+    }
+
+    .custom-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+    .displayGridsResponsive {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 15px;
+        width: 100%;
+        gap: 10px;
+        margin: 0 auto;
+    }
+
+    .bodyPantallaFinalCambio {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        font-size: 13px;
+        width: 100%;
+        height: 500px;
+        gap: 1px;
+        margin: 0 auto;
+        border: 2px solid red;
+    }
+
+
+    .displayGridsResponsiveVehiculo {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        font-size: 13px;
+        width: 100%;
+        gap: 1px;
+        margin: 0 auto;
+    }
+
+
+    .elementosFinales {
+        grid-column: 1/4;
+        font-size: 11px;
+    }
+
+    .elementosFinales2 {
+        grid-column: 1/4;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-size: 11px;
+        width: 100%;
+    }
+
+    .TextoMontaje {
+        font-size: 15px;
+        color: aqua;
+        text-shadow: 1px 1px 1px 2px blue;
+    }
+
+    .cuadro1 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5,1fr);
+        font-size: 15px;
+        width: 100%;
+        gap: 1px;
+        place-content: center;
+        margin: 0 auto;
+        padding-left: 10%;
+    }
+
+    .cuadro2 {
+        display: grid;
+        place-items: center;
+        overflow-y: scroll; /* Esto añade un scroll vertical */
+        max-height: 400px; /* Esto establece la altura máxima del contenedor antes de que aparezca el scroll */
+    }
+    /*@media screen and (min-width:540px ) and (max-width:995px) {
+    .displayGridsResponsiveVehiculo {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 4fr;
+        font-size: 13px;
+        width: 100%;
+        gap: 1px;
+        margin: 0 auto;
+    }
+    .cuadro1 {
+        display: grid;
+        padding-left: 0px;
+        grid-template-columns: 5fr;
+        grid-template-rows: 1fr;
+    }
+    .cuadro2 {
+        display: grid;
+        place-items: center;
+        overflow-y: scroll;*/ /* Esto añade un scroll vertical */
+    /*max-height: 400px;*/ /* Esto establece la altura máxima del contenedor antes de que aparezca el scroll */
+    /*}
+}*/
+
+
+    @media screen and (min-width:300px ) and (max-width:541px) {
+        .displayGridsResponsiveVehiculo {
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: 3fr 6fr;
+            font-size: 13px;
+            width: 100%;
+            gap: 1px;
+            margin: 0 auto;
+        }
+
+        .cuadro2 {
+            display: grid;
+            place-items: center;
+            overflow-y: scroll; /* Esto añade un scroll vertical */
+            max-height: 400px; /* Esto establece la altura máxima del contenedor antes de que aparezca el scroll */
+        }
+    }
+
+    @media screen and (max-width:992px) {
+        .cuadro1 {
+            display: grid;
+            padding-left: 0px;
+            grid-template-columns: 5fr;
+            grid-template-rows: 1.5fr 6fr 1fr;
+        }
+    }
+
+    @media screen and (max-width:994px) {
+
+        .imagenDIvContainer2 {
+            width: 80%;
+        }
+
+        .imagenDIvContainer {
+            width: 80%;
+        }
+
+        #strimage3, #strimage2, #strimage1 {
+            width: 50%;
+        }
+    }
+
+
+    @media screen and (max-width:994px) {
+        #miDiv3 {
+            height: 100%;
+        }
+
+        .dataColocarLanta {
+            margin-top:20px;
+            display: grid;
+            place-items: center;
+        }
+    }
+
+    .dataColocarLanta {
+             margin-top:20px;
+        display: grid;
+        place-items: center;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .rotate-icon2 {
+        animation: rotate 2s linear infinite;
+    }
+
+
+    .select2-container {
+        z-index: 99999999; /* Ajusta este valor según sea necesario para asegurarte de que esté por encima de otros elementos */
+    }
+
+    #exampleModal {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        background-color: aliceblue;
+    }
+
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.form-check-input {
+    margin: 0;
+}
+
+.form-check-label {
+    color: blue;
+    font-weight: bold;
+    margin: 0;
+}
+
+.button-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+}
+.checkData{
+   border:solid 1px black;
+}
+
+

@@ -1,0 +1,207 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Views\Anio\**" />
+	  <Compile Remove="Views\Cabezal\**" />
+	  <Compile Remove="Views\Chasis\**" />
+	  <Compile Remove="Views\Chofer\**" />
+	  <Compile Remove="Views\Ciudad\**" />
+	  <Compile Remove="Views\Color\**" />
+	  <Compile Remove="Views\ConfiguracionParametro\**" />
+	  <Compile Remove="Views\Disenios\**" />
+	  <Compile Remove="Views\Ejes\**" />
+	  <Compile Remove="Views\Estados\**" />
+	  <Compile Remove="Views\Generador\**" />
+	  <Compile Remove="Views\Llanta\**" />
+	  <Compile Remove="Views\Marcas\**" />
+	  <Compile Remove="Views\Medidas\**" />
+	  <Compile Remove="Views\Modelos\**" />
+	  <Compile Remove="Views\Pais\**" />
+	  <Compile Remove="Views\Pedidos\**" />
+	  <Compile Remove="Views\Provincia\**" />
+	  <Compile Remove="Views\Recepcion\**" />
+	  <Compile Remove="Views\Reportes\**" />
+	  <Compile Remove="Views\TipoEstructura\**" />
+	  <Compile Remove="Views\Tipos\**" />
+	  <Compile Remove="Views\Usuario\**" />
+	  <Compile Remove="Views\Vehiculo\**" />
+	  <Content Remove="Views\Anio\**" />
+	  <Content Remove="Views\Cabezal\**" />
+	  <Content Remove="Views\Chasis\**" />
+	  <Content Remove="Views\Chofer\**" />
+	  <Content Remove="Views\Ciudad\**" />
+	  <Content Remove="Views\Color\**" />
+	  <Content Remove="Views\ConfiguracionParametro\**" />
+	  <Content Remove="Views\Disenios\**" />
+	  <Content Remove="Views\Ejes\**" />
+	  <Content Remove="Views\Estados\**" />
+	  <Content Remove="Views\Generador\**" />
+	  <Content Remove="Views\Llanta\**" />
+	  <Content Remove="Views\Marcas\**" />
+	  <Content Remove="Views\Medidas\**" />
+	  <Content Remove="Views\Modelos\**" />
+	  <Content Remove="Views\Pais\**" />
+	  <Content Remove="Views\Pedidos\**" />
+	  <Content Remove="Views\Provincia\**" />
+	  <Content Remove="Views\Recepcion\**" />
+	  <Content Remove="Views\Reportes\**" />
+	  <Content Remove="Views\TipoEstructura\**" />
+	  <Content Remove="Views\Tipos\**" />
+	  <Content Remove="Views\Usuario\**" />
+	  <Content Remove="Views\Vehiculo\**" />
+	  <EmbeddedResource Remove="Views\Anio\**" />
+	  <EmbeddedResource Remove="Views\Cabezal\**" />
+	  <EmbeddedResource Remove="Views\Chasis\**" />
+	  <EmbeddedResource Remove="Views\Chofer\**" />
+	  <EmbeddedResource Remove="Views\Ciudad\**" />
+	  <EmbeddedResource Remove="Views\Color\**" />
+	  <EmbeddedResource Remove="Views\ConfiguracionParametro\**" />
+	  <EmbeddedResource Remove="Views\Disenios\**" />
+	  <EmbeddedResource Remove="Views\Ejes\**" />
+	  <EmbeddedResource Remove="Views\Estados\**" />
+	  <EmbeddedResource Remove="Views\Generador\**" />
+	  <EmbeddedResource Remove="Views\Llanta\**" />
+	  <EmbeddedResource Remove="Views\Marcas\**" />
+	  <EmbeddedResource Remove="Views\Medidas\**" />
+	  <EmbeddedResource Remove="Views\Modelos\**" />
+	  <EmbeddedResource Remove="Views\Pais\**" />
+	  <EmbeddedResource Remove="Views\Pedidos\**" />
+	  <EmbeddedResource Remove="Views\Provincia\**" />
+	  <EmbeddedResource Remove="Views\Recepcion\**" />
+	  <EmbeddedResource Remove="Views\Reportes\**" />
+	  <EmbeddedResource Remove="Views\TipoEstructura\**" />
+	  <EmbeddedResource Remove="Views\Tipos\**" />
+	  <EmbeddedResource Remove="Views\Usuario\**" />
+	  <EmbeddedResource Remove="Views\Vehiculo\**" />
+	  <None Remove="Views\Anio\**" />
+	  <None Remove="Views\Cabezal\**" />
+	  <None Remove="Views\Chasis\**" />
+	  <None Remove="Views\Chofer\**" />
+	  <None Remove="Views\Ciudad\**" />
+	  <None Remove="Views\Color\**" />
+	  <None Remove="Views\ConfiguracionParametro\**" />
+	  <None Remove="Views\Disenios\**" />
+	  <None Remove="Views\Ejes\**" />
+	  <None Remove="Views\Estados\**" />
+	  <None Remove="Views\Generador\**" />
+	  <None Remove="Views\Llanta\**" />
+	  <None Remove="Views\Marcas\**" />
+	  <None Remove="Views\Medidas\**" />
+	  <None Remove="Views\Modelos\**" />
+	  <None Remove="Views\Pais\**" />
+	  <None Remove="Views\Pedidos\**" />
+	  <None Remove="Views\Provincia\**" />
+	  <None Remove="Views\Recepcion\**" />
+	  <None Remove="Views\Reportes\**" />
+	  <None Remove="Views\TipoEstructura\**" />
+	  <None Remove="Views\Tipos\**" />
+	  <None Remove="Views\Usuario\**" />
+	  <None Remove="Views\Vehiculo\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Controllers\AnioController.cs" />
+	  <Compile Remove="Controllers\CabezalController.cs" />
+	  <Compile Remove="Controllers\ChasisController.cs" />
+	  <Compile Remove="Controllers\ChoferController.cs" />
+	  <Compile Remove="Controllers\CiudadController.cs" />
+	  <Compile Remove="Controllers\ColorController.cs" />
+	  <Compile Remove="Controllers\ConfiguracionParametroController.cs" />
+	  <Compile Remove="Controllers\DiseniosController.cs" />
+	  <Compile Remove="Controllers\EjesController.cs" />
+	  <Compile Remove="Controllers\EstadoController.cs" />
+	  <Compile Remove="Controllers\GeneradorController.cs" />
+	  <Compile Remove="Controllers\LlantaController.cs" />
+	  <Compile Remove="Controllers\MarcasController.cs" />
+	  <Compile Remove="Controllers\MedidasController.cs" />
+	  <Compile Remove="Controllers\ModelosController.cs" />
+	  <Compile Remove="Controllers\PaisController.cs" />
+	  <Compile Remove="Controllers\PedidosController.cs" />
+	  <Compile Remove="Controllers\ProvinciaController.cs" />
+	  <Compile Remove="Controllers\RecepcionController.cs" />
+	  <Compile Remove="Controllers\ReportesController.cs" />
+	  <Compile Remove="Controllers\TipoEstructuraController.cs" />
+	  <Compile Remove="Controllers\TiposController.cs" />
+	  <Compile Remove="Controllers\VehiculoController.cs" />
+	  <Compile Remove="Engines\GemboxReportingEngine.cs" />
+	  <Compile Remove="Helpers\EnviarCorreoPedidos.cs" />
+	  <Compile Remove="Helpers\ReportingAttributes.cs" />
+	  <Compile Remove="Models\AnioViewModel.cs" />
+	  <Compile Remove="Models\CabezalViewModel.cs" />
+	  <Compile Remove="Models\CatalogoViewModel.cs" />
+	  <Compile Remove="Models\ChasisViewModel.cs" />
+	  <Compile Remove="Models\ChoferViewModel.cs" />
+	  <Compile Remove="Models\CiudadViewModel.cs" />
+	  <Compile Remove="Models\ColorViewModel.cs" />
+	  <Compile Remove="Models\ConfiguracionMenuDinamicoViewModel.cs" />
+	  <Compile Remove="Models\ConfiguracionParametroViewModel.cs" />
+	  <Compile Remove="Models\CreacionPedidoViewModel.cs" />
+	  <Compile Remove="Models\DisenioViewModel.cs" />
+	  <Compile Remove="Models\EjeViewModel.cs" />
+	  <Compile Remove="Models\EstadoViewModel.cs" />
+	  <Compile Remove="Models\GeneradorViewModel.cs" />
+	  <Compile Remove="Models\ListaBitacoraViewModel.cs" />
+	  <Compile Remove="Models\ListaFiltroReporteLlanta.cs" />
+	  <Compile Remove="Models\LlantaViewModel.cs" />
+	  <Compile Remove="Models\MarcaViewModel.cs" />
+	  <Compile Remove="Models\MedidaViewModel.cs" />
+	  <Compile Remove="Models\ModeloViewModel.cs" />
+	  <Compile Remove="Models\PaisViewModel.cs" />
+	  <Compile Remove="Models\Persona.cs" />
+	  <Compile Remove="Models\ProductoNuevoModel.cs" />
+	  <Compile Remove="Models\ProductoViewModel.cs" />
+	  <Compile Remove="Models\Proveedor.cs" />
+	  <Compile Remove="Models\ProvinciaViewModel.cs" />
+	  <Compile Remove="Models\RecepcionVehiculo.cs" />
+	  <Compile Remove="Models\RecepcionVehiculoViewModel.cs" />
+	  <Compile Remove="Models\SolicitudAtencionViewModel.cs" />
+	  <Compile Remove="Models\SolicitudPedidoViewModel.cs" />
+	  <Compile Remove="Models\SolicitudServicioViewModel.cs" />
+	  <Compile Remove="Models\TipoEstructuraViewModel.cs" />
+	  <Compile Remove="Models\TipoViewModel.cs" />
+	  <Compile Remove="Models\VehiculoViewModel.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Remove="wwwroot\imagenes\logoGMA.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Controllers\Postman.lnk" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="bootstrap" Version="5.3.2" />
+		<PackageReference Include="GemBox.Spreadsheet" Version="41.3.30.1101" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.4" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+		<PackageReference Include="NLog" Version="5.2.7" />
+		<PackageReference Include="RestSharp" Version="110.2.0" />
+		<PackageReference Include="RestSharp.Serializers.Utf8Json" Version="106.15.0" />
+		<PackageReference Include="SendGrid" Version="9.28.1" />
+		<PackageReference Include="SweetAlert" Version="1.0.0" />
+		<PackageReference Include="System.IO.Packaging" Version="8.0.0" />
+		<PackageReference Include="Utf8Json" Version="1.3.7" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Engines\" />
+	  <Folder Include="Helpers\" />
+	  <Folder Include="wwwroot\imagenes\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Views\Shared\Error.cshtml" />
+	  <None Include="Views\Shared\_Layout.cshtml" />
+	  <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+	</ItemGroup>
+
+</Project>
