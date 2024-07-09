@@ -346,7 +346,7 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"></path>
 
     <div id="FondoPantalla2" hidden></div>
     <div class="offcanvas offcanvas-start" tabindex="999999" id="offcanvas"  aria-labelledby="offcanvasLabel" data-bs-keyboard="false" data-bs-backdrop="true">
-        <div class="d-flex align-items-end flex-column" style="height: 30px; background-color: white">
+       @*  <div class="d-flex align-items-end flex-column" style="height: 30px; background-color: white">
             <button id="myButton" type="button" style="background-color: white; border: none;" class="justify-content-end" data-bs-dismiss="offcanvas" aria-label="Cerrar" >
                 <i id="myIcon" class="bi bi-arrow-left-short" style="font-size: 25px;"></i>
             </button>
@@ -358,7 +358,7 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"></path>
         <div class="d-flex justify-content-center" style="background-color:white ;">
             <p class="d-none d-sm-inline mx-1 h6">  </p>
 
-        </div>
+        </div> *@
         <div class="d-flex justify-content-center" style="background-color:white ;">
             <p class="d-none d-sm-inline mx-1 small " style="color:black ;">Sistema de Tareas</p>
         </div>
@@ -444,18 +444,21 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"></path>
 
 
         document.addEventListener('DOMContentLoaded', function () {
-              var animation = lottie.loadAnimation({
-                container: document.getElementById('inicioLottie2'), // el ID del contenedor
-                renderer: 'svg',
-                loop: true,
-                autoplay: true,
-                path: 'https://lottie.host/b65c8c1e-49c8-40da-846e-bcfb446ef8d3/yW9xU9lJWm.json' // la URL externa del archivo JSON de la animación
-            });
+            //   var animation = lottie.loadAnimation({
+            //     container: document.getElementById('inicioLottie2'), // el ID del contenedor
+            //     renderer: 'svg',
+            //     loop: true,
+            //     autoplay: true,
+            //     path: 'https://lottie.host/b65c8c1e-49c8-40da-846e-bcfb446ef8d3/yW9xU9lJWm.json' // la URL externa del archivo JSON de la animación
+            // });
                var menuHtml = '';
-                 menuHtml += ' <ul> <li><a href="/Home/Index" onclick="abrirLoaderA()"  ><i class="fs-5 bi-house rotate-icon" > </i><span class="ms-1  ">  Inicio</span ></a> </li>';
+                 menuHtml += ' <ul> <li><a href="/Home/Index" onclick="abrirLoaderA()"  ><i class="fs-5 bi-house rotate-icon" > </i><span class="ms-1  ">  Gestionar Tareas</span ></a> </li>';
+       menuHtml += ' <ul> <li><a href="/Usuario/Index" onclick="abrirLoaderA()"  ><i class="bi bi-person-fill"></i><span class="ms-1  ">  Usuario Registro </span ></a> </li>';
+     menuHtml += ' <ul> <li><a href="/Usuario/IndexRoles" onclick="abrirLoaderA()"  ><i class="bi bi-menu-up"></i><span class="ms-1  ">   Registro Roles </span ></a> </li>';
+
+
   menuHtml += '<li><a href = "/Account/CerrarSession" > <i class="bi bi-box-arrow-left" > </i> <span class="ms-1" >  Cerrar Sesion</span ></a></li>';
                     document.getElementById('menuDesplegable').innerHTML = menuHtml;
-
 
 
         });

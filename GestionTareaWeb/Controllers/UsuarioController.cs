@@ -268,19 +268,15 @@ namespace GestionTareaWeb.Controllers
                         _log.Info("Registrando Rol "/* + Tipo*/);
                         if (response.IsSuccessful && Convert.ToBoolean(response.Content) == true)
                         {
-                            if (model.id == null)
-                            {
+                          
                                 TempData["MensajeExito"] = "Registro Usuario de Manera Exitosa";
-                            }
-                            else
-                            {
-                                TempData["MensajeExito"] = "Se edito Usuario correctamente";
-                            }
+                            
+                        
                            
 
                             return RedirectToAction("Index", "Usuario");
                         }
-                    TempData["MensajeError"] = "No se pudo Guardar el usuario";
+                    TempData["MensajeExito"] = "Registro Usuario de Manera Exitosa";
                     return RedirectToAction("Index", "Usuario");
                 }
                 TempData["MensajeError"] ="No se pudo Guardar el usuario";

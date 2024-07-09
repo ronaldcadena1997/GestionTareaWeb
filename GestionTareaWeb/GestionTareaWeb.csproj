@@ -29,7 +29,6 @@
 	  <Compile Remove="Views\Reportes\**" />
 	  <Compile Remove="Views\TipoEstructura\**" />
 	  <Compile Remove="Views\Tipos\**" />
-	  <Compile Remove="Views\Usuario\**" />
 	  <Compile Remove="Views\Vehiculo\**" />
 	  <Content Remove="Views\Anio\**" />
 	  <Content Remove="Views\Cabezal\**" />
@@ -53,7 +52,6 @@
 	  <Content Remove="Views\Reportes\**" />
 	  <Content Remove="Views\TipoEstructura\**" />
 	  <Content Remove="Views\Tipos\**" />
-	  <Content Remove="Views\Usuario\**" />
 	  <Content Remove="Views\Vehiculo\**" />
 	  <EmbeddedResource Remove="Views\Anio\**" />
 	  <EmbeddedResource Remove="Views\Cabezal\**" />
@@ -77,7 +75,6 @@
 	  <EmbeddedResource Remove="Views\Reportes\**" />
 	  <EmbeddedResource Remove="Views\TipoEstructura\**" />
 	  <EmbeddedResource Remove="Views\Tipos\**" />
-	  <EmbeddedResource Remove="Views\Usuario\**" />
 	  <EmbeddedResource Remove="Views\Vehiculo\**" />
 	  <None Remove="Views\Anio\**" />
 	  <None Remove="Views\Cabezal\**" />
@@ -101,7 +98,6 @@
 	  <None Remove="Views\Reportes\**" />
 	  <None Remove="Views\TipoEstructura\**" />
 	  <None Remove="Views\Tipos\**" />
-	  <None Remove="Views\Usuario\**" />
 	  <None Remove="Views\Vehiculo\**" />
 	</ItemGroup>
 
@@ -202,6 +198,8 @@
 	  <None Include="Views\Shared\Error.cshtml" />
 	  <None Include="Views\Shared\_Layout.cshtml" />
 	  <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+	  <None Include="Views\Usuario\Index.cshtml" />
+	  <None Include="Views\Usuario\IndexRoles.cshtml" />
 	</ItemGroup>
 
 </Project>
