@@ -175,6 +175,7 @@
 	<ItemGroup>
 		<PackageReference Include="bootstrap" Version="5.3.2" />
 		<PackageReference Include="GemBox.Spreadsheet" Version="41.3.30.1101" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.4" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />

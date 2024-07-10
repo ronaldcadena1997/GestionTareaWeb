@@ -8,6 +8,7 @@
         public EjemploGUIDViewModel EjemploGUID_1 { get; set; }
         public EjemploGUIDViewModel EjemploGUID_2 { get; set; }
 
+        public long nota { get; set; }
         public long idTask { get; set; }
         public string tarea { get; set; }
         public string usuario { get; set; }
@@ -18,6 +19,8 @@
         public DataDashboard ObjDataDashboard { get; set; }
 
         public List<DataPermisosPantallaUsuarioss> ListaDataPermisosPantallaUsuario { get; set; }
+
+        public UsuariosInformacion ObjUsuarios { get; set; }
 
         public List<UsuariosInformacion> ListaUsuarios { get; set; }
 
@@ -101,7 +104,8 @@
         public string tarea { get; set; }
         public string usuario { get; set; }
 
-    
+        public long nota { get; set; }
+
         public string usuarioId { get; set; }
       
     }
@@ -114,6 +118,9 @@
 
         public string descripcion { get; set; }
 
+        public bool estadoNota { get; set; }
+        public long nota { get; set; }
+
         public long idTask { get; set; }
 
 
@@ -125,6 +132,7 @@
         public string idEstuduante { get; set; }
         public string Nombre { get; set; }
 
+        public long nota { get; set; }
         public string descripcion { get; set; }
 
         public long idTask { get; set; }

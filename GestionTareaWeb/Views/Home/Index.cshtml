@@ -82,7 +82,9 @@ height:110%;
 
  </div> 
 
-
+ <div style="font-size:30px; color:red; margin-bottom:50px;">
+     USUARIO:@Model.ObjUsuarios.tipoRol  - @Model.ObjUsuarios.nombre   
+ </div>
  <!-- Modal Eliminar -->
 <div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -142,10 +144,16 @@ height:110%;
             <input id="idTareaNomE"  asp-for="@Model.tarea"  type="text"  placeholder="ingrese una tarea"/>
         </div>
 
+        
+           <div class="row" style="margin-top:90px;">
+            <label for="nota">Ingrese su nota:</label>
+        <input type="number" id="nota" name="nota"  asp-for="@Model.nota"  min="0" max="100" required>
+         </div>
+
          <div id="PlacaElement10" class="row" style="margin-top:50px;">
            
          
-    <label  for="inputGroupSelect02">Usuarios</label>
+    <label  for="inputGroupSelect02">Usuario Designado</label>
 
 <select id="CabezalId2"  asp-for="@Model.usuarioId" class="form-control alistamientoscabezal" style="font-size:16px;color:blue;" >
      @if (Model.ListaUsuarios != null)
@@ -211,143 +219,275 @@ height:110%;
 
 
 
+@if (Model.ObjUsuarios.tipoRol == "PROFESOR(A)")
+{
+    <div class="row" style=" height:700px; display: flex;">
+        <div class="column" style=" flex: 1; ">
 
-<div class="row" style=" height:700px; display: flex;">
-    <div class="column" style=" flex: 1; ">
+            <div>Creacion De Tarea y Asignacion de la Tarea a un Estudiante en Especifico</div>
+            <form asp-action="GuardaryEditarInfoTarea">
 
-        <div>Creacion De Tarea y Asignacion de la Tarea a un Estudiante en Especifico</div>
-        <form asp-action="GuardaryEditarInfoTarea">
+                <div class="row" style="margin-top:90px;">
+                    <label>Tarea</label>
+                    <input type="text" asp-for="@Model.tarea"   placeholder="ingrese el detalle de la tarea tarea"/>
+                </div>
 
-        <div class="row" style="margin-top:90px;">
-            <label>Tarea</label>
-            <input type="text" asp-for="@Model.tarea"   placeholder="ingrese una tarea"/>
-        </div>
+                <div class="row" style="margin-top:50px;">
 
-         <div class="row" style="margin-top:50px;">
+                    <div id="PlacaElement102" class="row" style="margin-top:50px;">
 
-                 <div id="PlacaElement102" class="row" style="margin-top:50px;">
-     
-    <label  for="inputGroupSelect02">Usuarios</label>
+                        <label  for="inputGroupSelect02">Asigne a que Usuario va esta tarea</label>
 
-<select id="taskid" asp-for="@Model.usuarioId" class="form-control alistamientoscabezal2" style="font-size:16px;color:blue;" >
-     @if (Model.ListaUsuarios != null)
-     {
-         foreach (var item in Model.ListaUsuarios)
-         {
-<option value="@item.id">@item.nombre</option>
-         }
-     }
- 
-</select>
-  
-         </div>
-    
-         </div>
-
-        <div class="row" style="margin-top:90px; display:flex; align-items:center; justify-content:center; ">
-            <button type="submit" class="btn btn-success" style="width:150px;">Crear Tarea</button>
-
-        </div>
-
-
-
-        </form>
-
-
-    </div>
-
-
-
-
-
-    <div class="column" style="flex: 2; padding-top:60px;">
-        <div style="align-items:center; text-align:center; font-weight:bold; font-size:20px; margin-bottom:30px;">Monitoreo de Tareas Designadas Para los Estudiantes</div>
-         <div class="table-responsive">
-                    <table class="table table-bordered table-sm  dataTable" id="tablaLlantas">
-
-                        <thead>
-                           
-                            <tr>
-                                <th >
-                                    Nombre estudiante
-                                </th>
-                                <th >
-                                    Tarea
-                                </th>
-                                <th >
-                                    Acciones
-                                </th>
-                               
-                           
-                            </tr>
-                        </thead>
-                      <tbody>
-
-                            @if (Model.ListaTaskViewModel != null)
+                        <select id="taskid" asp-for="@Model.usuarioId" class="form-control alistamientoscabezal2" style="font-size:16px;color:blue;" >
+                            @if (Model.ListaUsuarios != null)
                             {
-
-                                @foreach (var item in Model.ListaTaskViewModel)
+                                foreach (var item in Model.ListaUsuarios)
                                 {
-                                      @Html.HiddenFor(model => item.idTask)
-                                    @Html.HiddenFor(model => item.idEstuduante)
-
-                                    
-                                     
-                                    <tr>
-
-
-                                        <td>
-                                            @Html.DisplayFor(model => item.nombre)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(model => item.descripcion)
-                                        </td>
-                                      
-
-                                        <td>
-                                            <button title="Editar Tarea" class="btn p-v-sm btn-success btn-sm" style="margin-right: 2px !important;" data-bs-toggle="modal" data-bs-target="#editarTareaModal" onclick="editar({idEstudiante:'@item.idEstuduante' , idTask:'@item.idTask' , tarea:'@item.descripcion' });">
-                                                <i class="bi bi-pen"></i>
-                                            </button>
-
-                                            <button title="Eliminar Tarea" class="btn p-v-sm btn-danger btn-sm" id="btnEliminar" data-bs-toggle="modal" data-bs-target="#eliminarModal" onclick="eliminar({idTask:@item.idTask});">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-
-
-                                        </td>
-                                    </tr>
+                                    <option value="@item.id">@item.nombre</option>
                                 }
 
-
-
                             }
-                       
-                        </tbody> 
-                        <tfoot>
-                            
-                            <tr>
-                                <th >
-                                    Nombre estudiante
-                                </th>
-                                <th >
-                                    Tarea
-                                </th>
-                                <th >
-                                    Acciones
-                                </th>
-                               
-                           
-                            </tr>
-                         </tfoot>
-                       
-                    </table>
+
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row" style="margin-top:90px; display:flex; align-items:center; justify-content:center; ">
+                    <button type="submit" class="btn btn-success" style="width:150px;">Crear Tarea</button>
+
+                </div>
+
+
+
+            </form>
+
+
+        </div>
+
+
+
+
+
+        <div class="column" style="flex: 2; padding-top:60px;">
+            <div style="align-items:center; text-align:center; font-weight:bold; font-size:20px; margin-bottom:30px;">Monitoreo de Tareas Designadas Para los Estudiantes</div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm  dataTable" id="tablaLlantas">
+
+                    <thead>
+
+                        <tr>
+                            <th >
+                                Nombre estudiante
+                            </th>
+                            <th >
+                                Tarea
+                            </th>
+                            <th>
+                                Nota de los estudiantes
+                            </th>
+                            <th>
+                                Estado de Subida
+
+                            </th>
+                            <th >
+                                Acciones
+                            </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @if (Model.ListaTaskViewModel != null)
+                        {
+
+                            @foreach (var item in Model.ListaTaskViewModel)
+                            {
+                                @Html.HiddenFor(model => item.idTask)
+                                @Html.HiddenFor(model => item.idEstuduante)
+
+
+
+                                <tr>
+
+
+                                    <td>
+                                        @Html.DisplayFor(model => item.nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.descripcion)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(model => item.nota)
+                                    </td>
+
+                                    <td>
+                                           @if(item.estadoNota){
+                                            <span style="color:green">Subido</span>
+                                        }else{
+                                             <span style="color:red">No Subido</span>
+                                        }
+                                    </td>
+
+                                    <td>
+                                        <button title="Editar Tarea" class="btn p-v-sm btn-success btn-sm" style="margin-right: 2px !important;" data-bs-toggle="modal" data-bs-target="#editarTareaModal" onclick="editar({idEstudiante:'@item.idEstuduante' , idTask:'@item.idTask' , tarea:'@item.descripcion' , notas:@item.nota });">
+                                            <i class="bi bi-pen"></i>
+                                        </button>
+
+                                        <button title="Eliminar Tarea" class="btn p-v-sm btn-danger btn-sm" id="btnEliminar" data-bs-toggle="modal" data-bs-target="#eliminarModal" onclick="eliminar({idTask:@item.idTask});">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+
+
+                                    </td>
+                                </tr>
+                            }
+
+
+
+                        }
+
+                    </tbody> 
+                    <tfoot>
+
+                        <tr>
+                            <th >
+                                Nombre estudiante
+                            </th>
+                            <th >
+                                Tarea
+                            </th>
+                            <th>
+                                Nota de los estudiantes
+                            </th>
+                                <th>
+                                Estado de Subida
+
+                            </th>
+                            <th >
+                                Acciones
+                            </th>
+
+
+                        </tr>
+                    </tfoot>
+
+                </table>
+
+            </div>
+        </div>
+
 
     </div>
-</div>
+}
+else
+{
+    <div class="row">
+        
+        <div class="column" style="flex: 2; padding-top:60px;">
+            <div style="align-items:center; text-align:center; font-weight:bold; font-size:20px; margin-bottom:30px;">Monitoreo de Tareas Designadas Para los Estudiantes</div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm  dataTable" id="tablaLlantas2">
 
-       
-</div>
-                
+                    <thead>
+
+                        <tr>
+                          
+                            <th>
+                                Tarea
+                            </th>
+                            <th>
+                                Subir Tarea
+                            </th>
+                            <th >
+                               Calificaciones
+                            </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @if (Model.ListaTaskViewModel != null)
+                        {
+
+                            @foreach (var item in Model.ListaTaskViewModel)
+                            {
+                                @Html.HiddenFor(model => item.idTask)
+                                @Html.HiddenFor(model => item.idEstuduante)
+
+
+
+                                <tr>
+
+
+                                    <td>
+                                        @Html.DisplayFor(model => item.descripcion)
+                                    </td>
+                                 
+
+
+
+                                    <td>
+                                         <form asp-action="EstadoSubidas">
+                                             <input type="text"  asp-for="@Model.idTask" value="@item.idTask"  hidden/>
+                                        <button type="submit" title="Subir Tarea" class="btn p-v-sm btn-success btn-sm" style="margin-right: 2px !important;"  >
+                                          <i class="bi bi-cloud-arrow-down-fill"></i>
+                                        </button>
+                                        </form>
+                                          @if(item.estadoNota){
+                                            <span style="color:green">Entregado</span>
+                                        }else{
+                                             <span style="color:red">No Entregado</span>
+                                        }
+                                    </td>
+
+                                     <td>
+                                        @Html.DisplayFor(model => item.nota)
+                                    </td>
+                                 
+
+                                </tr>
+                            }
+
+
+
+                        }
+
+                    </tbody> 
+                    <tfoot>
+
+                        <tr>
+                           <th>
+                                Tarea
+                            </th>
+                            <th>
+                                Subir Tarea
+                            </th>
+                            <th >
+                               Calificaciones
+                            </th>
+
+
+                        </tr>
+                    </tfoot>
+
+                </table>
+
+            </div>
+        </div>
+
+
+    </div>
+    
+}
+
            
    
 
@@ -425,8 +565,11 @@ function ObtenerVehiculosInfo(){
 function editar(info){
     $('#idTaskE').val(info.idTask);
       $("#idTareaNomE").val(info.tarea);
-       $("#CabezalId2").val(info.idEstudiante);
-
+          var selectElement = document.getElementById('CabezalId2');
+            var defaultValue = info.idEstudiante; // Cambia esto al valor que deseas establecer como predeterminado
+            selectElement.value = defaultValue;
+    //   $("#CabezalId2").val(info.idEstudiante);
+    $("#nota").val(info.notas);
 
 }
 

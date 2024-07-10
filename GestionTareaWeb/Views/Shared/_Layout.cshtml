@@ -364,14 +364,31 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"></path>
         </div>
 
 
+        @if( TempData["menu"] != null){
+            @if(TempData["menu"].ToString() == "PROFESOR(A)")
+            {
+            <nav id="menuDesplegable">
 
+                <ul>
+                    <li><a href="/Home/Index" onclick="abrirLoaderA()"><i class="fs-5 bi-house rotate-icon"></i><span class="ms-1"> Gestionar Tareas</span></a></li>
+                    <li><a href="/Usuario/Index" onclick="abrirLoaderA()"><i class="bi bi-person-fill"></i><span class="ms-1"> Usuario Registro</span></a></li>
+                    <li><a href="/Usuario/IndexRoles" onclick="abrirLoaderA()"><i class="bi bi-menu-up"></i><span class="ms-1"> Registro Roles</span></a></li>
+                    <li><a href="/Account/CerrarSession"><i class="bi bi-box-arrow-left"></i><span class="ms-1"> Cerrar Sesión</span></a></li>
+                </ul>
+            </nav>
+        }
+        else
+        {
+                        <nav id="menuDesplegable">
 
-        <nav id="menuDesplegable">
-         
-               
-             
+                <ul>
+                    <li><a href="/Home/Index" onclick="abrirLoaderA()"><i class="fs-5 bi-house rotate-icon"></i><span class="ms-1"> Gestionar Tareas</span></a></li>
+                     <li><a href="/Account/CerrarSession"><i class="bi bi-box-arrow-left"></i><span class="ms-1"> Cerrar Sesión</span></a></li>
+                </ul>
+            </nav>
+        }
+           }
 
-        </nav>
 
 
 
@@ -451,14 +468,14 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"></path>
             //     autoplay: true,
             //     path: 'https://lottie.host/b65c8c1e-49c8-40da-846e-bcfb446ef8d3/yW9xU9lJWm.json' // la URL externa del archivo JSON de la animación
             // });
-               var menuHtml = '';
-                 menuHtml += ' <ul> <li><a href="/Home/Index" onclick="abrirLoaderA()"  ><i class="fs-5 bi-house rotate-icon" > </i><span class="ms-1  ">  Gestionar Tareas</span ></a> </li>';
-       menuHtml += ' <ul> <li><a href="/Usuario/Index" onclick="abrirLoaderA()"  ><i class="bi bi-person-fill"></i><span class="ms-1  ">  Usuario Registro </span ></a> </li>';
-     menuHtml += ' <ul> <li><a href="/Usuario/IndexRoles" onclick="abrirLoaderA()"  ><i class="bi bi-menu-up"></i><span class="ms-1  ">   Registro Roles </span ></a> </li>';
+  //              var menuHtml = '';
+  //                menuHtml += ' <ul> <li><a href="/Home/Index" onclick="abrirLoaderA()"  ><i class="fs-5 bi-house rotate-icon" > </i><span class="ms-1  ">  Gestionar Tareas</span ></a> </li>';
+  //      menuHtml += ' <ul> <li><a href="/Usuario/Index" onclick="abrirLoaderA()"  ><i class="bi bi-person-fill"></i><span class="ms-1  ">  Usuario Registro </span ></a> </li>';
+  //    menuHtml += ' <ul> <li><a href="/Usuario/IndexRoles" onclick="abrirLoaderA()"  ><i class="bi bi-menu-up"></i><span class="ms-1  ">   Registro Roles </span ></a> </li>';
 
 
-  menuHtml += '<li><a href = "/Account/CerrarSession" > <i class="bi bi-box-arrow-left" > </i> <span class="ms-1" >  Cerrar Sesion</span ></a></li>';
-                    document.getElementById('menuDesplegable').innerHTML = menuHtml;
+  // menuHtml += '<li><a href = "/Account/CerrarSession" > <i class="bi bi-box-arrow-left" > </i> <span class="ms-1" >  Cerrar Sesion</span ></a></li>';
+  //                   document.getElementById('menuDesplegable').innerHTML = menuHtml;
 
 
         });
