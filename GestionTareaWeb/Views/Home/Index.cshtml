@@ -414,10 +414,10 @@ else
                     </thead>
                     <tbody>
 
-                        @if (Model.ListaTaskViewModel != null)
+                        @if (Model.ListaTaskViewModelEstudiante != null)
                         {
 
-                            @foreach (var item in Model.ListaTaskViewModel)
+                            @foreach (var item in Model.ListaTaskViewModelEstudiante)
                             {
                                 @Html.HiddenFor(model => item.idTask)
                                 @Html.HiddenFor(model => item.idEstuduante)

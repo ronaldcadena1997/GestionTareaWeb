@@ -11,6 +11,7 @@ using NLog;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using SendGrid.Helpers.Mail;
+using System.Collections.Generic;
 
 namespace GestionTareaWeb.Controllers
 {
@@ -63,6 +64,24 @@ namespace GestionTareaWeb.Controllers
 
                 model.ListaUsuarios = await ApiRequest<List<UsuariosInformacion>>("/api/cuentas/ListarUsuario");
             model.ListaTaskViewModel = await ApiRequest<List<TaskViewModels>>("/api/TaskEstudiantes/Listar");
+
+            
+
+               request = new RestRequest("/api/TaskEstudiantes/ListaTaskViewModelEstudiante", Method.Get);
+            request.AddParameter("Authorization", string.Format("Bearer " + tokenValue), ParameterType.HttpHeader);
+            request.AddQueryParameter("idTask", user);
+             response = await _apiClient.ExecuteAsync(request, Method.Get);
+            if (response.IsSuccessful)
+            {
+                var content = response.Content;
+                List<TaskViewModels> ListInfo = System.Text.Json.JsonSerializer.Deserialize<List<TaskViewModels>>(content);
+
+                model.ListaTaskViewModelEstudiante = ListInfo;
+            }
+            else
+            {
+                model.ListaTaskViewModelEstudiante = null;
+            }
             TempData["menu"] = model.ObjUsuarios.tipoRol;
 
 

@@ -25,8 +25,8 @@
         public List<UsuariosInformacion> ListaUsuarios { get; set; }
 
         public List<TaskViewModels> ListaTaskViewModel { get; set; }
+        public List<TaskViewModels> ListaTaskViewModelEstudiante { get; set; }
 
-        
 
         public FechasDashBoard ObjFechasDashBoard { get; set; }
     }
